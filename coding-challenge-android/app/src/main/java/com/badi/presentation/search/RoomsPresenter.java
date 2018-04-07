@@ -18,6 +18,7 @@ import com.badi.domain.interactor.DefaultCompletableObserver;
 import com.badi.domain.interactor.DefaultObserver;
 import com.badi.domain.interactor.search.RequestRoom;
 import com.badi.domain.interactor.search.SearchRoomsByCoordinates;
+import com.badi.domain.interactor.search.SearchRoomsByLocation;
 import com.badi.presentation.base.BasePresenter;
 
 import java.util.List;
@@ -34,6 +35,7 @@ import timber.log.Timber;
 public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements RoomsContract.Presenter {
 
     private final SearchRoomsByCoordinates searchRoomsByCoordinatesUseCase;
+    private final SearchRoomsByLocation searchRoomsByLocationUseCase;
     private final RequestRoom requestRoomUseCase;
 
     private boolean isSearchByLocation = true;
@@ -43,8 +45,11 @@ public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements
     private int roomRequestedID = 0;
 
     @Inject
-    RoomsPresenter(SearchRoomsByCoordinates searchRoomsByCoordinates, RequestRoom requestRoom) {
+    RoomsPresenter(SearchRoomsByCoordinates searchRoomsByCoordinates,
+                   SearchRoomsByLocation searchRoomsByLocationUseCase,
+                   RequestRoom requestRoom) {
         this.searchRoomsByCoordinatesUseCase = searchRoomsByCoordinates;
+        this.searchRoomsByLocationUseCase = searchRoomsByLocationUseCase;
         this.requestRoomUseCase = requestRoom;
     }
 
@@ -57,6 +62,7 @@ public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements
     public void detachView() {
         super.detachView();
         searchRoomsByCoordinatesUseCase.clear();
+        searchRoomsByLocationUseCase.clear();
         requestRoomUseCase.clear();
     }
 
@@ -66,6 +72,7 @@ public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements
         checkViewAttached();
         getView().hideEmptyView();
         getView().showLoading();
+        searchRoomsByLocationUseCase.execute(location, filters, new SearchRoomsObserver());
     }
 
     @Override
@@ -82,6 +89,8 @@ public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements
         checkViewAttached();
         if (!isSearchByLocation) {
             searchRoomsByCoordinatesUseCase.executePaginated(page, offsetRequestedRooms, new SearchPaginatedRoomsObserver());
+        } else {
+            searchRoomsByLocationUseCase.executePaginated(page, offsetRequestedRooms, new SearchRoomsObserver());
         }
     }
 
@@ -99,6 +108,8 @@ public class RoomsPresenter extends BasePresenter<RoomsContract.View> implements
         offsetRequestedRooms = 0;
         if (!isSearchByLocation) {
             searchRoomsByCoordinatesUseCase.executePaginated(1, offsetRequestedRooms, new SearchRoomsObserver());
+        } else {
+            searchRoomsByLocationUseCase.executePaginated(1, offsetRequestedRooms, new SearchRoomsObserver());
         }
     }
 

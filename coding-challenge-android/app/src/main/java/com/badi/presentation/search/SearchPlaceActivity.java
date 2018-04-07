@@ -15,11 +15,17 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -31,24 +37,47 @@ import com.badi.common.di.components.SearchComponent;
 import com.badi.common.di.modules.SearchModule;
 import com.badi.common.utils.DialogFactory;
 import com.badi.common.utils.LocationHelper;
+import com.badi.common.utils.PlaceAdapter;
+import com.badi.common.utils.PlaceAutoCompleteAdapter;
 import com.badi.common.utils.PlaceTypeMapper;
+import com.badi.common.utils.SimplePlaceAutoCompleteAdapter;
 import com.badi.data.entity.PlaceAddress;
 import com.badi.presentation.base.BaseActivity;
 import com.badi.presentation.navigation.Navigator;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.AutocompletePrediction;
+import com.google.android.gms.location.places.GeoDataClient;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.PlaceBufferResponse;
+import com.google.android.gms.location.places.Places;
+import com.google.android.gms.maps.model.RuntimeRemoteException;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.jakewharton.rxbinding2.widget.RxTextView;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 import timber.log.Timber;
 
-public class SearchPlaceActivity extends BaseActivity implements HasComponent<SearchComponent>, SearchPlaceContract.View {
+public class SearchPlaceActivity extends BaseActivity implements HasComponent<SearchComponent>,
+        SearchPlaceContract.View, GoogleApiClient.OnConnectionFailedListener {
 
     public static final String SEARCH_EXTRA_PLACE = "SearchPlaceActivity.SEARCH_EXTRA_PLACE";
+    private static final int TIME_IDLE = 1000;
 
     @Inject SearchPlacePresenter searchPlacePresenter;
     @Inject SearchPlaceRecentAdapter searchPlaceRecentAdapter;
@@ -56,6 +85,9 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
 
     private SearchComponent searchComponent;
     private LocationHelper locationHelper;
+    private PlaceAutoCompleteAdapter adapter;
+    private PlaceAdapter placeAdapter;
+    private GeoDataClient geoDataClient;
 
     @BindView(R.id.layout_search_place) CoordinatorLayout searchPlaceLayout;
     @BindView(R.id.edit_text_autocomplete) EditText autoCompleteEditText;
@@ -63,6 +95,7 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
     @BindView(R.id.recycler_view_searches) RecyclerView searchesRecyclerView;
     @BindView(R.id.recycler_view_autocomplete_places) RecyclerView placesRecyclerView;
     @BindView(R.id.button_current_location) Button currentLocationButton;
+    @BindView(R.id.view_invalid_search) ConstraintLayout viewInvalidSearch;
 
     /**
      * Return an Intent to start this Activity.
@@ -99,8 +132,113 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
     }
 
     private void setupComponents() {
+        searchPlacePresenter.getUserSearches();
 
+        // The entry points to the Places API.
+        geoDataClient = Places.getGeoDataClient(this, null);
+        // Set up the adapter that will retrieve suggestions from the Places Geo Data API that cover
+        // the entire world.
+        adapter = new SimplePlaceAutoCompleteAdapter(geoDataClient, null, new AutocompleteFilter.Builder()
+                .setTypeFilter(AutocompleteFilter.TYPE_FILTER_ADDRESS)
+                .build());
+        adapter.setOnPlaceListener(onPlaceListener);
+        adapter.setOnListPopulationListener(onListPopulationListener);
+
+        placesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        placesRecyclerView.setAdapter(adapter);
+
+        placeAdapter = new PlaceAdapter(new ArrayList<>());
+        searchesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        searchesRecyclerView.setAdapter(placeAdapter);
+
+        autoCompleteEditText.setOnEditorActionListener((textView, actionId, event) -> {
+            if (actionId == R.id.search || actionId == EditorInfo.IME_ACTION_GO) {
+                if (textView.getText().length() > 0) {
+                    if (adapter.getItemCount() > 0)
+                        onPlaceListener.onUserItemClicked(0);
+                }
+                return true;
+            }
+            return false;
+        });
+
+        RxTextView.textChanges(autoCompleteEditText)
+                .filter(charSequence -> charSequence.length() > 0)
+                .debounce(TIME_IDLE, TimeUnit.MILLISECONDS)
+                .map(CharSequence::toString)
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(string ->
+                adapter.getFilter().filter(string));
     }
+
+    private PlaceAutoCompleteAdapter.OnPlaceListener onPlaceListener = new PlaceAutoCompleteAdapter.OnPlaceListener() {
+        @Override
+        public void onUserItemClicked(Integer position) {
+            if (position != RecyclerView.NO_POSITION) {
+                /*
+                Retrieve the place ID of the selected item from the Adapter.
+                The adapter stores each Place suggestion in a AutocompletePrediction from which we
+                read the place ID and title.
+                */
+                final AutocompletePrediction item = adapter.getItem(position);
+                final String placeId = item.getPlaceId();
+
+                /*
+                Issue a request to the Places Geo Data API to retrieve a Place object with additional
+                details about the place.
+                */
+                Task<PlaceBufferResponse> placeResult = geoDataClient.getPlaceById(placeId);
+                placeResult.addOnCompleteListener(updatePlaceDetailsCallback);
+            }
+        }
+    };
+
+    /**
+     * Callback for results from a Places Geo Data Client query that shows the first place result in
+     * the details view on screen.
+     */
+    private OnCompleteListener<PlaceBufferResponse> updatePlaceDetailsCallback
+            = new OnCompleteListener<PlaceBufferResponse>() {
+        @Override
+        public void onComplete(@NonNull Task<PlaceBufferResponse> task) {
+            try {
+                PlaceBufferResponse places = task.getResult();
+
+                if (places.getCount() > 0) {
+                    // Get the Place object from the buffer.
+                    final Place place = places.get(0);
+
+                    Timber.i("Place details received: ".concat(place.getName().toString()));
+
+                    searchPlacePresenter.onPlaceDetails(place);
+                } else {
+                    Timber.e("Place query did not found any result.");
+                }
+                places.release();
+            } catch (RuntimeRemoteException e) {
+                // Request did not complete successfully
+                Timber.e( "Place query did not complete.".concat(e.toString()));
+            }
+        }
+    };
+
+    /**
+     * Listener that notifies when the suggestion list is populated or clear.
+     */
+    private PlaceAutoCompleteAdapter.OnListPopulationListener onListPopulationListener = () -> {
+        if (adapter.getItemCount() == 0) {
+            if (!TextUtils.isEmpty(autoCompleteEditText.getText())) {
+                viewInvalidSearch.setVisibility(View.VISIBLE);
+            } else {
+                viewInvalidSearch.setVisibility(View.GONE);
+            }
+            searchesRecyclerView.setVisibility(View.VISIBLE);
+            placesRecyclerView.setVisibility(View.GONE);
+        } else {
+            searchesRecyclerView.setVisibility(View.GONE);
+            viewInvalidSearch.setVisibility(View.GONE);
+            placesRecyclerView.setVisibility(View.VISIBLE);
+        }
+    };
 
     private void setupLocationCallback() {
         locationHelper.setLocationCallback(new LocationHelper.Listener() {
@@ -208,7 +346,7 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
 
     @Override
     public void showSearchList(List<PlaceAddress> searchList) {
-
+        placeAdapter.setPlacesList(searchList);
     }
 
     @Override
@@ -223,7 +361,7 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
 
     @Override
     public void setResultOKActivity(PlaceAddress address) {
-
+        searchPlacePresenter.saveUserSearch(address);
     }
 
     @Override
@@ -263,5 +401,10 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
     @Override
     public Context context() {
         return this;
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }

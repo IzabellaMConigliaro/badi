@@ -112,6 +112,8 @@
     <string name="error_cant_leave_chat">Whoops! It is not possible to leave the chat because there is a booking in common. If you still want to leave it contact support</string>
     <string name="error_cant_block_chat">Whoops! It is not possible to block the chat because there is a booking in common. If you still want to block it contact support</string>
     <string name="error_location_service">Temporary error: we cannot connect to our location service. Please, restart the app.</string>
+    <string name="error_whoops">Whoops!</string>
+    <string name="error_google_api_location">Can\'t find this location</string>
 
     <!-- Stripe Errors -->
     <string name="error_stripe_invalid_number">The card number is not a valid credit card number.</string>
@@ -494,6 +496,8 @@
     <string name="dialog_new_country_title">Almost there…</string>
     <string name="dialog_new_country_text">We are going to land soon in Italy! Come back in a few days and find your perfect roommate in this wonderful country.</string>
     <string name="dialog_new_country_awesome">Awesome!</string>
+    <string name="dialog_need_badi">¿Need a Badi?</string>
+    <string name="dialog_need_badi_message">List your room and send and receive requests to find your perfect roommate!</string>
 
     <!-- Add roommates -->
     <string name="add_roommates_title">Add Badis</string>

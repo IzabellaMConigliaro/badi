@@ -1,0 +1,29 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_place_suggestion_view"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
+    android:paddingEnd="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingRight="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingTop="2dp">
+
+    <TextView
+        android:id="@+id/text_place_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceListItem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:lines="1"
+        tools:text="Place address title"/>
+
+</android.support.constraint.ConstraintLayout>

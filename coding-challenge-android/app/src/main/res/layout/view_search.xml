@@ -52,12 +52,15 @@
             android:textSize="@dimen/text_size_small"/>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/countries_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager"
             tools:itemCount="2"
-            tools:listitem="@layout/item_country" />
+            tools:listitem="@layout/item_suggestion" />
+
+        <include layout="@layout/item_suggestion"/>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -44,14 +44,14 @@ import timber.log.Timber;
  * adapter. (See {@link AutocompletePrediction#freeze()}.)
  */
 public class PlaceAutoCompleteAdapter
-        extends RecyclerView.Adapter<PlaceAutoCompleteAdapter.PredictionHolder> implements Filterable {
+        extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
-    private static final CharacterStyle STYLE_BOLD = new StyleSpan(Typeface.BOLD);
+    protected static final CharacterStyle STYLE_BOLD = new StyleSpan(Typeface.BOLD);
 
     /**
      * Current results returned by this adapter.
      */
-    private ArrayList<AutocompletePrediction> resultList;
+    protected ArrayList<AutocompletePrediction> resultList;
 
     /**
      * Handles autocomplete requests.
@@ -68,10 +68,10 @@ public class PlaceAutoCompleteAdapter
      */
     private AutocompleteFilter placeFilter;
 
-    private OnPlaceListener onPlaceListener;
-    private OnListPopulationListener onListPopulationListener;
+    protected OnPlaceListener onPlaceListener;
+    protected OnListPopulationListener onListPopulationListener;
     private boolean tagsEnabled = false;
-    private PlaceTypeMapper placeTypeMapper;
+    protected PlaceTypeMapper placeTypeMapper;
 
     public interface OnPlaceListener {
         void onUserItemClicked(Integer position);
@@ -143,7 +143,7 @@ public class PlaceAutoCompleteAdapter
                     }
                 } else {
                     // The API did not return any results, invalidate the data set.
-                    notifyDataSetChanged();
+                    invalidListResult();
                 }
             }
 
@@ -158,6 +158,10 @@ public class PlaceAutoCompleteAdapter
                 }
             }
         };
+    }
+
+    protected void invalidListResult() {
+        notifyDataSetChanged();
     }
 
     /**
@@ -206,15 +210,15 @@ public class PlaceAutoCompleteAdapter
     }
 
     @Override
-    public PredictionHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_place_suggestion, parent, false);
         return new PredictionHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PredictionHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         // Show room details inside viewHolder
-        holder.show(resultList.get(position));
+        ((PredictionHolder) holder).show(resultList.get(position));
     }
 
     @Override

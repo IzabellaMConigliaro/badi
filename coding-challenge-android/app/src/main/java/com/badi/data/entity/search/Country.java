@@ -12,6 +12,9 @@ import java.util.List;
 @AutoValue
 public abstract class Country implements Parcelable {
 
+    public static final int NAME_INDEX = 0;
+    public static final int CITY_LIST_INDEX = 1;
+
     @SerializedName("name")
     public abstract String name();
 

@@ -25,6 +25,7 @@ import com.badi.domain.interactor.search.GetRoomsBySearch;
 import com.badi.domain.interactor.search.RequestRoom;
 import com.badi.domain.interactor.search.SearchRoomsByBounds;
 import com.badi.domain.interactor.search.SearchRoomsByCoordinates;
+import com.badi.domain.interactor.search.SearchRoomsByLocation;
 
 import dagger.Module;
 import dagger.Provides;
@@ -47,6 +48,13 @@ public class RoomModule {
     SearchRoomsByCoordinates provideSearchRoomsByCoordinates(RoomDataRepository roomDataRepository, ThreadExecutor
             threadExecutor, PostExecutionThread postExecutionThread) {
         return new SearchRoomsByCoordinates(roomDataRepository, threadExecutor, postExecutionThread);
+    }
+
+    @Provides
+    @PerActivity
+    SearchRoomsByLocation provideSearchRoomsByLocation(RoomDataRepository roomDataRepository, ThreadExecutor
+            threadExecutor, PostExecutionThread postExecutionThread) {
+        return new SearchRoomsByLocation(roomDataRepository, threadExecutor, postExecutionThread);
     }
 
     @Provides

@@ -10,12 +10,14 @@ package com.badi.presentation.search;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.arch.lifecycle.Lifecycle;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StyleableRes;
 import android.support.design.widget.AppBarLayout;
@@ -24,9 +26,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.badi.R;
 import com.badi.common.utils.DialogFactory;
@@ -57,26 +62,27 @@ import butterknife.Unbinder;
 import timber.log.Timber;
 import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 
+import static com.badi.presentation.search.DialogNeedABadi.DIALOG_NEED_A_BADI;
+
 /**
  * A {@link BaseFragment} that displays the search
  */
 public class SearchFragment extends BaseFragment {
-
-    @StyleableRes int CITY_IMG_SMALL_INDEX = 1;
-    @StyleableRes int CITY_IMG_LARGE_INDEX = 2;
-    @StyleableRes int NAME_INDEX = 0;
-    @StyleableRes int CITY_LIST_INDEX = 1;
-
     @Inject PreferencesHelper preferencesHelper;
     @Inject ResolveLocation resolveLocationUseCase;
 
     @BindView(R.id.appbar) AppBarLayout appBar;
     @BindView(R.id.collapsing_toolbar) CollapsingToolbarLayout collapsingToolbar;
     @BindView(R.id.view_search) View searchView;
+    @BindView(R.id.countries_recycler_view) RecyclerView countriesRecyclerView;
+    @BindView(R.id.suggestion_name) TextView suggestionName;
+    @BindView(R.id.cities_recycler_view) RecyclerView citiesRecyclerView;
+
+    @IdRes
+    private static final int ITEM_HOLDER_LAYOUT = R.layout.item_city_large;
 
     private LocationHelper locationHelper;
     private Unbinder unbinder;
-    private List<Country> countryList;
 
     public SearchFragment() {
         // Required empty public constructor
@@ -100,59 +106,10 @@ public class SearchFragment extends BaseFragment {
         View fragmentView = inflater.inflate(R.layout.fragment_search, container, false);
         unbinder = ButterKnife.bind(this, fragmentView);
         ViewUtil.shouldHideStatusBarSearch(appBar);
-        setupCountryList();
         setupToolbar();
         setupComponents();
         setupLocationCallback();
         return fragmentView;
-    }
-
-    private void setupCountryList() {
-        countryList = new ArrayList<>();
-
-        TypedArray countriesTypedArray = getResources().obtainTypedArray(R.array.countries);
-
-        for (int countryCount = 0; countryCount < countriesTypedArray.length(); countryCount++) {
-            TypedArray countryTypedArray = getTypedArray(countriesTypedArray, countryCount);
-            TypedArray citiesTypedArray = getTypedArray(countryTypedArray, CITY_LIST_INDEX);
-
-            List<City> citiesList = new ArrayList<>();
-
-            for (int cityCount = 0; cityCount < citiesTypedArray.length(); cityCount++) {
-                TypedArray city = getTypedArray(citiesTypedArray, cityCount);
-
-                citiesList.add(getCityBuild(city));
-
-                city.recycle();
-            }
-
-            countryList.add(getCountryBuild(countryTypedArray, citiesList));
-
-            citiesTypedArray.recycle();
-            countryTypedArray.recycle();
-        }
-
-        countriesTypedArray.recycle();
-    }
-
-    @NonNull
-    private TypedArray getTypedArray(TypedArray typedArray, int index) {
-        return getResources().obtainTypedArray(typedArray.getResourceId(index, 0));
-    }
-
-    private Country getCountryBuild(TypedArray countryTypedArray, List<City> citiesList) {
-        return Country.builder()
-                .setName(countryTypedArray.getString(NAME_INDEX))
-                .setCitiesList(citiesList)
-                .build();
-    }
-
-    private City getCityBuild(TypedArray city) {
-        return City.builder()
-                .setName(city.getString(NAME_INDEX))
-                .setImgSmall(city.getResourceId(CITY_IMG_SMALL_INDEX, 0))
-                .setImgLarge(city.getResourceId(CITY_IMG_LARGE_INDEX, 0))
-                .build();
     }
 
     @Override
@@ -197,7 +154,13 @@ public class SearchFragment extends BaseFragment {
 
     @OnClick(R.id.button_search_list_room)
     void onClickButtonListARoom() {
+        new DialogNeedABadi().showAllowingStateLoss(getFragmentManager(),
+                DIALOG_NEED_A_BADI, getOnDialogNeedABadiListener());
+    }
 
+    @NonNull
+    private DialogNeedABadi.OnDialogNeedABadiListener getOnDialogNeedABadiListener() {
+        return () -> navigator.navigateToListRoom(getContext());
     }
 
     private void handleSearchTypeNavigation(PlaceAddress placeAddress) {
@@ -224,7 +187,16 @@ public class SearchFragment extends BaseFragment {
     }
 
     private void setupComponents() {
+        countriesRecyclerView.setAdapter(new CountriesAdapter(getContext(), getCityClickListener()));
 
+        suggestionName.setText(R.string.search_suggested);
+        citiesRecyclerView.setAdapter(new SuggestedCitiesAdapter(getContext(), getCityClickListener()));
+    }
+
+    @NonNull
+    private CitiesAdapter.OnCityListener getCityClickListener() {
+        return (cityImage, city) ->
+                navigateToSearchResultWithLocation(city.name(), buildLocation(city.address(), city.id()));
     }
 
     private void navigateToSearchResultWithLocation(String toolbarTitle, Location location) {

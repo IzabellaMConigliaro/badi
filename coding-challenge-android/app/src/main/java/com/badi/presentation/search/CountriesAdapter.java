@@ -8,21 +8,17 @@
 package com.badi.presentation.search;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
+import android.content.res.TypedArray;
+import android.support.annotation.NonNull;
+import android.support.annotation.StyleableRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.badi.R;
-import com.badi.common.utils.GlideApp;
-import com.badi.common.utils.PriceUtils;
-import com.badi.common.utils.RecyclerPagerAdapter;
-import com.badi.data.entity.room.Room;
-import com.badi.data.entity.room.Tenant;
+import com.badi.data.entity.search.City;
 import com.badi.data.entity.search.Country;
 
 import java.util.ArrayList;
@@ -39,101 +35,102 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.CountryHolder> {
 
     private Context context;
-    private List<Room> roomsList;
-    private OnRoomListener onRoomListener;
+    private List<Country> countryList;
+    private CitiesAdapter.OnCityListener onCityListener;
 
-    interface OnRoomListener {
-        void onUserItemClicked(View roomImage, Room room);
-    }
-
-    CountriesAdapter(Context context) {
+    CountriesAdapter(Context context, CitiesAdapter.OnCityListener onCityListener) {
         this.context = context;
-        this.roomsList = new ArrayList<>();
+        this.onCityListener = onCityListener;
+        setupCountryList();
     }
 
     @Override
     public CountryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_room_map, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_suggestion, parent, false);
         return new CountryHolder(view);
     }
 
     @Override
     public void onBindViewHolder(CountryHolder holder, int position) {
-        // Show room details inside viewHolder
-        holder.show(roomsList.get(position));
+        // Show country details inside viewHolder
+        holder.show(countryList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return roomsList == null ? 0 : roomsList.size();
+        return countryList == null ? 0 : countryList.size();
     }
 
-    public void setRooms(List<Room> rooms) {
-        roomsList = rooms;
+    public void setCountries(List<Country> countries) {
+        countryList = countries;
         notifyDataSetChanged();
     }
 
+    private void setupCountryList() {
+        countryList = new ArrayList<>();
+
+        TypedArray countriesTypedArray = context.getResources().obtainTypedArray(R.array.countries);
+
+        for (int countryCount = 0; countryCount < countriesTypedArray.length(); countryCount++) {
+            TypedArray countryTypedArray = getTypedArray(countriesTypedArray, countryCount);
+            TypedArray citiesTypedArray = getTypedArray(countryTypedArray, Country.CITY_LIST_INDEX);
+
+            List<City> citiesList = new ArrayList<>();
+
+            for (int cityCount = 0; cityCount < citiesTypedArray.length(); cityCount++) {
+                TypedArray city = getTypedArray(citiesTypedArray, cityCount);
+
+                citiesList.add(getCityBuild(city));
+
+                city.recycle();
+            }
+
+            countryList.add(getCountryBuild(countryTypedArray, citiesList));
+
+            citiesTypedArray.recycle();
+            countryTypedArray.recycle();
+        }
+
+        countriesTypedArray.recycle();
+    }
+
+    @NonNull
+    private TypedArray getTypedArray(TypedArray typedArray, int index) {
+        return context.getResources().obtainTypedArray(typedArray.getResourceId(index, 0));
+    }
+
+    private Country getCountryBuild(TypedArray countryTypedArray, List<City> citiesList) {
+        return Country.builder()
+                .setName(countryTypedArray.getString(Country.NAME_INDEX))
+                .setCitiesList(citiesList)
+                .build();
+    }
+
+    private City getCityBuild(TypedArray city) {
+        return City.builder()
+                .setId(city.getString(City.ID_INDEX))
+                .setName(city.getString(City.NAME_INDEX))
+                .setAddress(city.getString(City.ADDRESS_INDEX))
+                .setImgSmall(city.getResourceId(City.CITY_IMG_SMALL_INDEX, 0))
+                .setImgLarge(city.getResourceId(City.CITY_IMG_LARGE_INDEX, 0))
+                .build();
+    }
+
     class CountryHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.cities_recycler_view) RecyclerView citiesRecyclerView;
 
-        @BindView(R.id.container_room) View roomContainer;
+        @BindView(R.id.suggestion_name) TextView countryName;
 
-        @BindView(R.id.image_thumbnail_room) ImageView roomImage;
-
-        @BindView(R.id.image_thumbnail_user_room) ImageView userImage;
-
-        @BindView(R.id.border_thumbnail_user_room) RelativeLayout borderUserImage;
-
-        @BindView(R.id.text_title_room) TextView roomTitleText;
-
-        @BindView(R.id.text_value_room) TextView roomValueText;
-
-        RoomHolder(View itemView) {
+        CountryHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
 
-        public void show(final Room room) {
-            if (!room.pictures().isEmpty())
-                GlideApp.with(context)
-                        .load(room.pictures().get(0).width500Url())
-                        .transition(withCrossFade())
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_placeholder_room_map)
-                        .into(roomImage);
-            else
-                roomImage.setImageResource(R.drawable.ic_placeholder_room_map);
+        public void show(final Country country) {
+            countryName.setText(country.name());
 
-            if (!room.tenants().isEmpty()) {
-                Tenant mainTenant = room.tenants().get(0);
-                if (!mainTenant.pictures().isEmpty())
-                    GlideApp.with(context)
-                            .load(mainTenant.pictures().get(0).width100Url())
-                            .transition(withCrossFade())
-                            .circleCrop()
-                            .placeholder(R.drawable.ic_placeholder_profile_round)
-                            .error(R.drawable.ic_placeholder_profile_round)
-                            .into(userImage);
-                else
-                    userImage.setImageResource(R.drawable.ic_placeholder_profile_round);
-
-                borderUserImage.setBackground(mainTenant.verifiedAccount() ?
-                        ContextCompat.getDrawable(borderUserImage.getContext(), R.drawable.img_circle_border_green) :
-                        ContextCompat.getDrawable(borderUserImage.getContext(), R.drawable.img_circle_border_white));
-            }
-
-            roomTitleText.setText(room.title());
-            roomValueText.setText(PriceUtils.getPriceRoom(roomValueText.getContext(), room.pricesAttributes()));
-            roomContainer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onRoomListener.onUserItemClicked(roomImage, room);
-                }
-            });
+            citiesRecyclerView.setAdapter(new CitiesAdapter(context, country.citiesList(), onCityListener));
         }
 
-    }
-
-    void setOnRoomListener(OnRoomListener onRoomListener) {
-        this.onRoomListener = onRoomListener;
     }
 }

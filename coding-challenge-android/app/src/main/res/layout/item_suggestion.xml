@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/country_name"
+        android:id="@+id/suggestion_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/activity_horizontal_margin_android"
@@ -26,7 +26,7 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-        app:layout_constraintTop_toBottomOf="@+id/country_name"
+        app:layout_constraintTop_toBottomOf="@+id/suggestion_name"
         tools:listitem="@layout/item_city"/>
 
     <View

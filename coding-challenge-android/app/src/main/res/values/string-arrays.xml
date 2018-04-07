@@ -6,6 +6,11 @@
         <item>@string/map_tab_text</item>
     </string-array>
 
+    <array name="suggested_cities">
+        <item>@array/city_bologna</item>
+        <item>@array/city_barcelona</item>
+    </array>
+
     <array name="countries">
         <item>@array/country_spain</item>
         <item>@array/country_italy</item>
@@ -29,55 +34,73 @@
     </array>
 
     <array name="city_barcelona">
+        <item>@string/place_id_barcelona</item>
         <item>@string/city_barcelona</item>
+        <item>@string/address_barcelona</item>
         <item>@drawable/img_search_barcelona_small</item>
         <item>@drawable/img_search_barcelona_large</item>
     </array>
 
     <array name="city_madrid">
+        <item>@string/place_id_madrid</item>
         <item>@string/city_madrid</item>
+        <item>@string/address_madrid</item>
         <item>@drawable/img_search_madrid_small</item>
         <item>@drawable/img_search_madrid_large</item>
     </array>
 
     <array name="city_valencia">
+        <item>@string/place_id_valencia</item>
         <item>@string/city_valencia</item>
+        <item>@string/address_valencia</item>
         <item>@drawable/img_search_valencia_small</item>
         <item>@drawable/img_search_valencia_large</item>
     </array>
 
     <array name="city_seville">
+        <item>@string/place_id_sevilla</item>
         <item>@string/city_seville</item>
+        <item>@string/address_sevilla</item>
         <item>@drawable/img_search_seville_small</item>
         <item>@drawable/img_search_seville_small</item>
     </array>
 
     <array name="city_granada">
+        <item>@string/place_id_granada</item>
         <item>@string/city_granada</item>
+        <item>@string/address_granada</item>
         <item>@drawable/img_search_granada_small</item>
         <item>@drawable/img_search_granada_small</item>
     </array>
 
     <array name="city_malaga">
+        <item>@string/place_id_malaga</item>
         <item>@string/city_malaga</item>
+        <item>@string/address_malaga</item>
         <item>@drawable/img_search_malaga_small</item>
         <item>@drawable/img_search_malaga_small</item>
     </array>
 
     <array name="city_bilbao">
+        <item>@string/place_id_bilbo</item>
         <item>@string/city_bilbao</item>
+        <item>@string/address_bilbo</item>
         <item>@drawable/img_search_bilbao_small</item>
         <item>@drawable/img_search_bilbao_small</item>
     </array>
 
     <array name="city_alacant">
+        <item>@string/place_id_alacant</item>
         <item>@string/city_alacant</item>
+        <item>@string/address_alacant</item>
         <item>@drawable/img_search_alicante_small</item>
         <item>@drawable/img_search_alicante_small</item>
     </array>
 
     <array name="city_salamanca">
+        <item>@string/place_id_salamanca</item>
         <item>@string/city_salamanca</item>
+        <item>@string/address_salamanca</item>
         <item>@drawable/img_search_salamanca_small</item>
         <item>@drawable/img_search_salamanca_small</item>
     </array>
@@ -96,31 +119,41 @@
     </array>
 
     <array name="city_rome">
+        <item>@string/place_id_roma</item>
         <item>@string/city_rome</item>
+        <item>@string/address_roma</item>
         <item>@drawable/img_search_rome_small</item>
         <item>@drawable/img_search_rome_small</item>
     </array>
 
     <array name="city_milan">
+        <item>@string/place_id_milano</item>
         <item>@string/city_milan</item>
+        <item>@string/address_milano</item>
         <item>@drawable/img_search_milan_small</item>
         <item>@drawable/img_search_milan_small</item>
     </array>
 
     <array name="city_bologna">
+        <item>@string/place_id_bologna</item>
         <item>@string/city_bologna</item>
+        <item>@string/address_bologna</item>
         <item>@drawable/img_search_bologna_small</item>
         <item>@drawable/img_search_bologna_small</item>
     </array>
 
     <array name="city_florence">
+        <item>@string/place_id_firenze</item>
         <item>@string/city_florence</item>
+        <item>@string/address_firenze</item>
         <item>@drawable/img_search_florence_small</item>
         <item>@drawable/img_search_florence_small</item>
     </array>
 
     <array name="city_pisa">
+        <item>@string/place_id_pisa</item>
         <item>@string/city_pisa</item>
+        <item>@string/address_pisa</item>
         <item>@drawable/img_search_pisa_small</item>
         <item>@drawable/img_search_pisa_small</item>
     </array>
