@@ -1,0 +1,570 @@
+<resources>
+    <string name="title_filters">Filters</string>
+    <string name="title_list_room">List room</string>
+    <string name="title_edit_room">Edit room</string>
+
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <string name="list_tab_text">list</string>
+    <string name="map_tab_text">map</string>
+
+    <!-- Menu actions -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="menu_search_filter">Filters</string> <!-- Not in iOS -->
+    <string name="menu_room_detail_share">Share</string> <!-- Not in iOS -->
+    <string name="menu_room_detail_report">Report room</string>
+    <string name="menu_filters_clear_all">Clear all</string>
+
+    <!-- Important info - URLs terms & privacy -->
+    <string name="email_info" translatable="false">info@badiapp.com</string>
+    <string name="email_feedback" translatable="false">feedback@badiapp.com</string>
+    <string name="email_report">report@badiapp.com</string>
+    <string name="url_room_prefix" translatable="false">/room/</string>
+    <string name="url_get_app" translatable="false">http://get.badiapp.com</string>
+
+    <!-- Permission messages -->
+    <!-- Not in iOS -->
+    <string name="permission_available_location">Location permission has been granted.</string> <!-- Not in iOS -->
+    <string name="permissions_not_granted">Permissions were not granted.</string> <!-- Not in iOS -->
+    <string name="permission_location_rationale">Location permission is needed to show the rooms in your current area.</string> <!-- Not in iOS -->
+    <string name="permission_write_external_storage_rationale">Write external storage permission is needed to choose an image from the camera</string> <!-- Not in iOS -->
+    <string name="permission_ok" translatable="false">OK</string> <!-- Not in iOS -->
+
+    <!-- Exception messages -->
+    <string name="exception_message_generic">Whoops! There was an application error</string> <!-- Not in iOS -->
+    <string name="exception_message_no_connection">There is no internet connection</string>
+    <string name="exception_message_unexpected_error">Whoops! There was an error</string> <!-- Not in iOS -->
+
+    <!-- Dialog messages -->
+    <!-- Not in iOS -->
+
+    <!-- Choose Image -->
+    <string name="image_choose_input_method">Select an image from the camera or the gallery</string> <!-- Not in iOS -->
+    <string name="message_uploading_image">Uploading image…</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In Social-->
+
+    <!-- Sign In -->
+
+    <!-- Sign Up -->
+
+    <!-- Forgot Password -->
+
+    <!-- Verify Options -->
+
+    <!-- Promo code -->
+
+    <!-- Actions -->
+
+    <!-- Errors -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_incorrect_password">Whoops! The password is incorrect.</string>
+    <string name="error_field_required">This field is required</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_list_room_no_pictures">You need to add at least one picture to upload a room</string> <!-- Not in iOS -->
+    <string name="error_list_room_bills_included">Please select whether bills are included or not</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_from">Please select when the room will become available</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_to">Please select when the room will become unavailable</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_tenants">Please add all the people who live in the flat (include yourself)</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_type_bed_selected">Please select the type of bed available in the room</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_amenities">Please add at least one amenity</string> <!-- Not in iOS -->
+
+    <!-- Api Errors -->
+    <string name="error_warning">Oh no!</string> <!-- Not in iOS -->
+    <string name="error_authentication">Whoops! Something went wrong with your authentication. Please try again and, if the error persists contact support.</string>
+    <string name="error_invalid_context">Whoops! You need to be logged-in to do that!</string>
+    <string name="error_no_access">Whoops! You don’t have access here. Please, contact support.</string>
+    <string name="error_resource_not_found">Whoops! Cannot find that resource. Please, contact support.</string>
+    <string name="error_resource_already_confirmed_by_another_user">Whoops! That information is used by another user.</string>
+    <string name="error_non_available">Whoops! That resource is non available. Please, contact support.</string>
+    <string name="error_forbidden_operation">Whoops! You are not allowed to do that! Please, contact support.</string>
+    <string name="error_invalid_params">Whoops! Some mandatory fields are missing. Try later or contact support.</string> <!-- Not in iOS -->
+    <string name="error_invalid_record">Whoops! There was an error with one or more fields submitted. Try again or contact support.</string>
+    <string name="error_invalid_facebook_token">Whoops! There was an unknown error with facebook. Try later or contact support.</string>
+    <string name="error_invalid_sms_request">Whoops! Cannot process your verification request. Try later or contact support.</string>
+    <string name="error_concurrent_verification_sms">You already requested an SMS verification. If you don’t receive a message within 5 minutes, try again.</string>
+    <string name="error_unknown_sms_verification">Whoops! There was an unknown error with the sms verification service. Try later or contact support.</string>
+    <string name="error_no_match_login_type">Whoops! Cannot find an account with this email and login type. Are you sure you didn’t register through a different provider?</string>
+    <string name="error_email_not_found">Whoops! Couldn’t find any users with that email address.</string>
+    <string name="error_email_already_exists">Whoops! Your email already exists.</string>
+    <string name="error_facebook_login_exists">Whoops! This Facebook account is already being used by another account.</string>
+    <string name="error_google_login_exists">Whoops! This Google account is already being used by another account.</string>
+    <string name="error_unknown_exception">Whoops! There was an unknown error. Try later or contact support.</string>
+    <string name="error_invalid_postal_code">Whoops! This postal code is invalid for the selected country.</string>
+    <string name="error_invalid_account_number">Whoops! The bank account number is invalid. Please double check if its written correctly.</string>
+    <string name="error_invalid_account_country">Whoops! The bank account country is invalid. Please check the bank account is from the country of your account.</string>
+    <string name="error_no_match_password_confirmation">Whoops! It seems that the two passwords are not the same.</string>
+    <string name="error_request_already_answered">Whoops! This request is already answered</string>
+    <string name="error_request_non_archivable">Whoops! This request is no archivable</string>
+    <string name="error_room_is_frozen">Whoops! This room can’t be updated</string>
+    <string name="error_user_with_no_payment_data">Whoops! The payment data is missing</string>
+    <string name="error_user_with_no_payout_data">Whoops! The payout data is missing</string>
+    <string name="error_booking_proposal_in_progress">Whoops! You’ve already sent a booking request to this room. It’s not possible to send another one while you have one waiting for answer</string>
+    <string name="error_cant_leave_chat">Whoops! It is not possible to leave the chat because there is a booking in common. If you still want to leave it contact support</string>
+    <string name="error_cant_block_chat">Whoops! It is not possible to block the chat because there is a booking in common. If you still want to block it contact support</string>
+    <string name="error_location_service">Temporary error: we cannot connect to our location service. Please, restart the app.</string>
+
+    <!-- Stripe Errors -->
+    <string name="error_stripe_invalid_number">The card number is not a valid credit card number.</string>
+    <string name="error_stripe_invalid_expiry_month">The card’s expiration month is invalid.</string>
+    <string name="error_stripe_invalid_expiry_year">The card’s expiration year is invalid.</string>
+    <string name="error_stripe_invalid_cvc">The card’s security code is invalid.</string>
+    <string name="error_stripe_invalid_swipe_data">The card’s swipe data is invalid.</string>
+    <string name="error_stripe_incorrect_number">The card number is incorrect.</string>
+    <string name="error_stripe_expired_card">The card has expired.</string>
+    <string name="error_stripe_incorrect_cvc">The card’s security code is incorrect.</string>
+    <string name="error_stripe_incorrect_zip">The card’s zip code failed validation.</string>
+    <string name="error_stripe_card_declined">The card was declined.</string>
+    <string name="error_stripe_missing">There is no card on a customer that is being charged.</string>
+    <string name="error_stripe_processing_error">An error occurred while processing the card.</string>
+
+    <!-- Google Analytics Screens -->
+
+    <!-- Social screens -->
+
+    <!-- Social screens -->
+
+    <!-- My lists screens -->
+
+    <!-- Alerts screens -->
+
+    <!-- Rooms and profiles screens -->
+
+    <!-- Verify screens -->
+
+    <!-- Chat screens -->
+
+    <!-- My rooms screens -->
+
+    <!-- Create room screens -->
+
+    <!-- Settings screens -->
+
+    <!-- Google Analytics Categories -->
+
+    <!-- Google Analytics Map Events -->
+
+    <!-- Google Analytics Search Events -->
+
+    <!-- Google Analytics Rate App Events -->
+    <string name="ga_event_rate_app_bueh" translatable="false">Bueh</string>
+    <string name="ga_event_rate_app_so_so" translatable="false">So-so</string>
+    <string name="ga_event_rate_app_like_it" translatable="false">Like it</string>
+    <string name="ga_event_rate_app_love_it" translatable="false">Love it</string>
+
+    <!-- Google Analytics Actions -->
+
+    <!-- Mixpanel Booking Seeker Events -->
+
+    <!-- Mixpanel Booking Lister Events -->
+
+    <!-- Mixpanel Phone Verification Events -->
+
+    <!-- Mixpanel Email Verification Events -->
+
+    <!-- Mixpanel List Room Events -->
+
+    <!-- Profile -->
+    <string name="profile_years_old">%d years old</string>
+    <string name="profile_other">Other</string> <!-- Not in iOS -->
+    <string name="profile_language_arabic">Arabic</string>
+    <string name="profile_language_indonesian">Indonesian</string>
+    <string name="profile_language_chinese">Chinese</string>
+    <string name="profile_language_czech">Czech</string>
+    <string name="profile_language_danish">Danish</string>
+    <string name="profile_language_german">German</string>
+    <string name="profile_language_greek">Greek</string>
+    <string name="profile_language_english">English</string>
+    <string name="profile_language_esperanto">Esperanto</string>
+    <string name="profile_language_spanish">Spanish</string>
+    <string name="profile_language_french">French</string>
+    <string name="profile_language_hindi">Hindi</string>
+    <string name="profile_language_italian">Italian</string>
+    <string name="profile_language_japanese">Japanese</string>
+    <string name="profile_language_korean">Korean</string>
+    <string name="profile_language_hungarian">Hungarian</string>
+    <string name="profile_language_dutch">Dutch</string>
+    <string name="profile_language_norwegian">Norwegian</string>
+    <string name="profile_language_polish">Polish</string>
+    <string name="profile_language_portuguese">Portuguese</string>
+    <string name="profile_language_romanian">Romanian</string>
+    <string name="profile_language_russian">Russian</string>
+    <string name="profile_language_finnish">Finnish</string>
+    <string name="profile_language_swedish">Swedish</string>
+    <string name="profile_language_swahili">Swahili</string>
+    <string name="profile_language_turkish">Turkish</string>
+    <string name="profile_language_catalan">Catalan</string>
+    <string name="profile_language_basque">Basque</string>
+    <string name="profile_language_galician">Galician</string>
+    <string name="profile_language_thai">Thai</string>
+    <string name="profile_language_vietnamese">Vietnamese</string>
+
+    <!-- Profile -->
+    <string name="edit_profile_name">Name</string>
+    <string name="edit_profile_female">female</string>
+    <string name="edit_profile_male">male</string>
+    <string name="edit_profile_characters_left">%d characters left</string>
+    <string name="edit_profile_location_information">(We won’t show your exact location)</string>
+
+    <!-- Search -->
+    <string name="search_title">Where do you want to live?</string>
+    <string name="search_hint_type_a_city_or_location">Type a city or location</string>
+    <string name="search_hint_type_address">Type the address</string>
+    <string name="search_nearby">Search nearby</string>
+    <string name="search_list_a_room">List Room</string>
+    <string name="search_suggested">Suggested</string>
+    <string name="search_my_location">My location</string>
+
+    <string name="country_spain">Spain</string>
+    <string name="city_barcelona">Barcelona</string>
+    <string name="city_madrid">Madrid</string>
+    <string name="city_valencia">Valencia</string>
+    <string name="city_seville">Seville</string>
+    <string name="city_granada">Granada</string>
+    <string name="city_malaga">Málaga</string>
+    <string name="city_bilbao">Bilbao</string>
+    <string name="city_alacant">Alicante</string>
+    <string name="city_salamanca">Salamanca</string>
+
+    <string name="country_italy">Italy</string>
+    <string name="city_rome">Rome</string>
+    <string name="city_milan">Milan</string>
+    <string name="city_bologna">Bologna</string>
+    <string name="city_florence">Florence</string>
+    <string name="city_pisa">Pisa</string>
+
+    <!-- Search Suggestions Place Type Tags -->
+    <string name="search_suggestion_tag_region">region</string>
+    <string name="search_suggestion_tag_country">country</string>
+    <string name="search_suggestion_tag_establishment">establishment</string>
+    <string name="search_suggestion_tag_city">city</string>
+    <string name="search_suggestion_tag_neighborhood">neighborhood</string>
+    <string name="search_suggestion_tag_street">street</string>
+    <string name="search_suggestion_tag_district">district</string>
+    <string name="search_suggestion_tag_transit_station">transit station</string>
+
+    <!-- Search Results -->
+    <string name="search_result_see_more_rooms">Want to see more rooms? Search in another area or try changing your selected filters.</string>
+
+    <!--Spain search location request params-->
+    <string name="address_barcelona" translatable="false">Barcelona</string>
+    <string name="place_id_barcelona" translatable="false">ChIJ5TCOcRaYpBIRCmZHTz37sEQ</string>
+    <string name="address_madrid" translatable="false">Madrid</string>
+    <string name="place_id_madrid" translatable="false">ChIJgTwKgJcpQg0RaSKMYcHeNsQ</string>
+    <string name="address_valencia" translatable="false">Valencia</string>
+    <string name="place_id_valencia" translatable="false">ChIJb7Dv8ExPYA0ROR1_HwFRo7Q</string>
+    <string name="address_sevilla" translatable="false">Sevilla</string>
+    <string name="place_id_sevilla" translatable="false">ChIJkWK-FBFsEg0RSFb-HGIY8DQ</string>
+    <string name="address_granada" translatable="false">Granada</string>
+    <string name="place_id_granada" translatable="false">ChIJfcIyLeb8cQ0Rcg1g0533WJI</string>
+    <string name="address_malaga" translatable="false">Malaga</string>
+    <string name="place_id_malaga" translatable="false">ChIJLSHbT8RZcg0RzzLKyZLcJWA</string>
+    <string name="address_bilbo" translatable="false">Bilbo</string>
+    <string name="place_id_bilbo" translatable="false">ChIJuYlLZidOTg0RRaaVHsSsNGU</string>
+    <string name="address_alacant" translatable="false">Alacant</string>
+    <string name="place_id_alacant" translatable="false">ChIJS6udO9o1Yg0R44ELrHKofR0</string>
+    <string name="address_salamanca" translatable="false">Salamanca</string>
+    <string name="place_id_salamanca" translatable="false">ChIJRXzdx10mPw0Rqqm_C9Dkei8</string>
+
+    <!--Italian search location request params-->
+    <string name="address_roma" translatable="false">Roma</string>
+    <string name="place_id_roma" translatable="false">ChIJu46S-ZZhLxMROG5lkwZ3D7k</string>
+    <string name="address_bologna" translatable="false">Bologna</string>
+    <string name="place_id_bologna" translatable="false">ChIJC8RR6ZjUf0cRQZSkWwF84aI</string>
+    <string name="address_firenze" translatable="false">Firenze</string>
+    <string name="place_id_firenze" translatable="false">ChIJrdbSgKZWKhMRAyrH7xd51ZM</string>
+    <string name="address_milano" translatable="false">Milano</string>
+    <string name="place_id_milano" translatable="false">ChIJ53USP0nBhkcRjQ50xhPN_zw</string>
+    <string name="address_pisa" translatable="false">Pisa</string>
+    <string name="place_id_pisa" translatable="false">ChIJj1n28JqR1RIRyHiEp7UPuKo</string>
+
+    <!-- Filters -->
+    <string name="filters_apply">Apply</string>
+    <string name="filters_available_from">Available from</string>
+    <string name="filters_now">Now</string>
+    <string name="filters_choose_date">Choose date</string>
+    <string name="filters_maximum_price">Monthly max price</string>
+    <string name="filters_maximum_price_description">(Country currency)</string>
+    <string name="filters_no_price" translatable="false"> - </string>
+    <string name="filters_badis_gender">I prefer to live with…</string>
+    <string name="filters_badis_gender_description">(Currently living in the apartment)</string>
+    <string name="filters_gender_all_female">all female</string>
+    <string name="filters_gender_all_male">all male</string>
+    <string name="filters_gender_both">both</string>
+    <string name="filters_badis_total">Total Badis</string>
+    <string name="filters_badis_total_description">(Currently living in the apartment)</string>
+    <string name="filters_badis_total_minimum">minimum</string>
+    <string name="filters_badis_total_maximum">maximum</string>
+    <string name="filters_badis_total_amount_undefined" translatable="false"> - </string>
+    <string name="filters_bed_type">Bed type</string>
+    <string name="filters_room_amenities">Room amenities</string>
+    <string name="filters_friendly_rules">Friendly rules</string>
+    <string name="filters_general_amenities">General amenities</string>
+    <string name="currency_sign_euro" translatable="false">€</string>
+
+    <!-- Badis gender Filters Tags -->
+    <string name="filters_tag_gender_female" translatable="false">female</string>
+    <string name="filters_tag_gender_male" translatable="false">male</string>
+    <string name="filters_tag_gender_mix" translatable="false">mix</string>
+
+    <!-- Bed type Filters Tags-->
+    <string name="filters_tag_sofa_bed" translatable="false">1</string>
+    <string name="filters_tag_single_bed" translatable="false">2</string>
+    <string name="filters_tag_double_bed" translatable="false">3</string>
+    <string name="filters_tag_unfurnished" translatable="false">4</string>
+
+    <!-- Amenities Filters Tags-->
+    <string name="filters_tag_tv" translatable="false">1</string>
+    <string name="filters_tag_wifi" translatable="false">2</string>
+    <string name="filters_tag_air_conditioner" translatable="false">3</string>
+    <string name="filters_tag_parking" translatable="false">4</string>
+    <string name="filters_tag_smokers_friendly" translatable="false">5</string>
+    <string name="filters_tag_pet_allowed" translatable="false">6</string>
+    <string name="filters_tag_elevator" translatable="false">7</string>
+    <string name="filters_tag_heating" translatable="false">8</string>
+    <string name="filters_tag_washing_machine" translatable="false">9</string>
+    <string name="filters_tag_dryer" translatable="false">10</string>
+    <string name="filters_tag_doorman" translatable="false">12</string>
+    <string name="filters_tag_couples_accepted" translatable="false">13</string>
+    <string name="filters_tag_furnished" translatable="false">14</string>
+    <string name="filters_tag_pool" translatable="false">15</string>
+    <string name="filters_tag_private_bathroom" translatable="false">16</string>
+    <string name="filters_tag_terrace" translatable="false">17</string>
+    <string name="filters_tag_window" translatable="false">18</string>
+    <string name="filters_tag_dishwasher" translatable="false">19</string>
+    <string name="filters_tag_wheelchair_friendly" translatable="false">20</string>
+
+    <!-- Room -->
+    <string name="date_room_dot" translatable="false">·</string>
+    <string name="date_room_day">1 day</string>
+    <string name="date_room_days">%d days</string>
+    <string name="date_room_week">1 week</string>
+    <string name="date_room_weeks">%d weeks</string>
+    <string name="date_room_month">1 month</string>
+    <string name="date_room_months">%d months</string>
+    <string name="date_room_year">1 year or more</string> <!-- Not in iOS -->
+    <string name="date_room_this_week">this week</string>
+    <string name="date_room_over_a_week_ago">over a week ago</string>
+    <string name="price_room_monthly">%1$d %2$s/month</string>
+    <string name="price_room" translatable="false">%1$d %2$s</string>
+    <string name="button_send_request">Send request</string>
+    <string name="button_room_requested">Room requested</string> <!-- Not in iOS -->
+    <string name="text_share_room">Look what room I found with @badiapp #FindYourPlace %1$s%2$d</string>
+    <string name="text_share_room_with_city">Look what room I found in %1$s with @badiapp #FindYourPlace %2$s%3$d</string>
+    <string name="text_share_my_room">I have a spare room for rent in my flat, anyone interested? Check it out at @badiapp %1$s%2$d</string>
+    <string name="text_share_room_chooser">Share</string>
+    <string name="text_label_room_not_available">Room not available</string>
+    <string name="text_label_denied">Denied</string>
+    <string name="text_label_my_room">my room</string>
+    <string name="error_rooms_unavailable">Whoops! No rooms in this location yet.</string>
+    <string name="title_map_search">Selected Map Area</string>
+    <string name="published">Published</string>
+    <plurals name="amount_roommates">
+        <item quantity="one">%d roommate</item>
+        <item quantity="other">%d roommates</item>
+    </plurals>
+    <string name="room_detail_roommates">Roommates</string>
+    <string name="room_detail_min_stay">Minimum stay</string>
+    <string name="room_detail_location">Location</string>
+    <string name="room_detail_now">Now</string>
+    <string name="room_detail_available_from">Available from</string>
+    <string name="room_detail_to">to</string>
+    <string name="room_detail_see_all">see all</string>
+    
+    <!-- Room Report -->
+    <string name="room_report_chooser">Report room</string>
+    <string name="room_report_email_title">I want to report this room</string>
+    <string name="room_report_email_body">I would like to report this room (room id %1$d)</string>
+
+    <!-- Amenities -->
+    <string name="amenities_title">Amenities</string>
+    <string name="amenities_unfurnished">no bed</string>
+    <string name="amenities_sofa_bed">sofa bed</string>
+    <string name="amenities_single_bed">single bed</string>
+    <string name="amenities_double_bed">double bed</string>
+    <string name="amenities_tv">tv</string>
+    <string name="amenities_wifi">wifi</string>
+    <string name="amenities_air_conditioner">air conditioner</string>
+    <string name="amenities_parking">parking</string>
+    <string name="amenities_smokers_friendly">smokers friendly</string>
+    <string name="amenities_pet_allowed">pets allowed</string>
+    <string name="amenities_elevator">elevator</string>
+    <string name="amenities_heating">heating</string>
+    <string name="amenities_washing_machine">washing machine</string>
+    <string name="amenities_dryer">dryer</string>
+    <string name="amenities_doorman">doorman</string>
+    <string name="amenities_couples_accepted">couples accepted</string>
+    <string name="amenities_furnished">furnished</string>
+    <string name="amenities_pool">pool</string>
+    <string name="amenities_private_bathroom">private bathroom</string>
+    <string name="amenities_balcony">balcony</string>
+    <string name="amenities_exterior_view">exterior view</string>
+    <string name="amenities_dish_washer">dish washer</string>
+    <string name="amenities_wheelchair">wheelchair friendly</string>
+
+    <!-- Tenant Detail -->
+    <string name="report_user_subject">Report user with ID: %d</string>
+    <string name="report_user_body">I would like to report this user: \n\n Name: %1$s \n ID: %2$d \n\n Thanks</string>
+    <string name="report_user_chooser">Report user</string>
+
+    <!-- Map messages -->
+    <string name="map_fragment_searching_in_this_area">searching in this area</string>
+
+    <!-- transition shared elements -->
+    <string name="transition_room_background" translatable="false">room_background</string>
+    <string name="transition_tenant_image" translatable="false">tenant_image</string>
+
+    <!-- Settings -->
+    <string name="invite_friend_email_subject">Check out Badi! </string>
+    <string name="invite_friend_email_body">When I tried Badi I thought of you. The app allows you to rent or find rooms in shared flats and meet roommates. I think you’ll like it %1$s \n\n %2$s</string>
+    <string name="invite_friend_chooser">Invite a friend</string>
+    <string name="report_bug_email_subject">There is something wrong…</string>
+    <string name="report_bug_email_body">Device model: %1$s \n OS Version: %2$s \n App Version: %3$s \n App Build: %4$d \n User ID: %5$s \n</string>
+    <string name="report_bug_chooser">Report a bug</string>
+    <string name="delete_account_email_subject">Please delete my account</string>
+    <string name="delete_account_email_body">My ID: %d</string>
+    <string name="delete_account_chooser">Delete account</string>
+    <string name="send_email_chooser">Send email</string> <!-- Not in iOS -->
+
+    <!-- Chat -->
+
+    <!-- List room -->
+    <string name="list_room_pictures">Pictures</string>
+    <string name="list_room_cover_placeholder">Beautiful photos + Quantity =\nMore Opportunities!</string>
+    <string name="list_room_long_press_to_order">Long press to order</string>
+    <string name="list_room_about_the_room">About the room</string>
+    <string name="list_room_room_title">Room title (ex: Big sunny room)</string>
+    <string name="list_room_location">Location</string>
+    <string name="list_room_price_month">Price per month</string>
+    <string name="list_room_bills_included">Are the bills included?</string>
+    <string name="list_room_availability">Availability</string>
+    <string name="list_room_from">From</string>
+    <string name="list_room_right_now">right now</string>
+    <string name="list_room_choose_date">choose date</string>
+    <string name="list_room_to">to</string>
+    <string name="list_room_we_ll_see">no date</string>
+    <string name="list_room_minimum_stay_months">Minimum stay (months)</string>
+    <string name="list_room_who_lives_there">Total roommates</string>
+    <string name="list_room_you_included">(Include yourself)</string>
+    <string name="list_room_badis">Badis</string>
+    <string name="list_room_edit">edit</string>
+    <string name="list_room_type_of_bed">Type of bed</string>
+    <string name="list_room_amenities">Amenities</string>
+    <string name="list_room_select_the_amenities">Select the amenities</string>
+    <string name="list_room_description">Description</string>
+    <string name="list_room_hint_description">Write something more about your room, flat and roommates</string>
+    <string name="list_room_yes">Yes</string>
+    <string name="list_room_no">No</string>
+    <string name="list_room_minimum_stay_one_month" translatable="false">1</string>
+    <string name="list_room_minimum_stay_two_months" translatable="false">2</string>
+    <string name="list_room_minimum_stay_three_months" translatable="false">3</string>
+    <string name="list_room_minimum_stay_six_months" translatable="false">6</string>
+    <string name="list_room_minimum_stay_twelve_months" translatable="false">12</string>
+    <string name="list_room_message_wait_for_upload">An image is being uploaded, please wait until it finishes to upload the next one</string>
+    <string name="list_room_address_title">Where is the flat located?</string>
+    <string name="list_room_save_changes">Save changes</string>
+    <string name="list_room_place_save_location">Save location</string>
+
+    <!-- Invitations -->
+    <string name="room_button_reject_request">Not interested</string>
+    <string name="room_button_accept_request">Chat now</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_add_roommates_title">Your listing is better with your roommates!</string>
+    <string name="dialog_add_roommates_text">Add them to your listing to get better search results</string>
+    <string name="dialog_add_roommates_add_roommates">Add Badis</string>
+    <string name="dialog_add_roommates_later">Later</string>
+    <string name="dialog_share_listing_title">Your listing is public!</string>
+    <string name="dialog_share_listing_text">Get more visibility by sharing your listing</string>
+    <string name="dialog_share_listing_share_ad">Share listing</string>
+    <string name="dialog_share_listing_later">Later</string>
+    <string name="dialog_complete_profile_title">Complete your profile</string>
+    <string name="dialog_complete_profile_text">Badi is about people.\nComplete your profile be part of our community.</string>
+    <string name="dialog_complete_profile">Complete profile</string>
+    <string name="dialog_complete_profile_not_now">Not now</string>
+    <string name="dialog_new_country_title">Almost there…</string>
+    <string name="dialog_new_country_text">We are going to land soon in Italy! Come back in a few days and find your perfect roommate in this wonderful country.</string>
+    <string name="dialog_new_country_awesome">Awesome!</string>
+
+    <!-- Add roommates -->
+    <string name="add_roommates_title">Add Badis</string>
+    <string name="add_roommates_hint_search">Type the name here</string>
+    <string name="add_roommates_whoops">Whoops!</string>
+    <string name="add_roommates_no_roommate_found">It seems your Badi isn’t here</string>
+    <string name="add_roommates_cannot_find_roommates">Can’t find your roommates above?</string>
+    <string name="add_roommates_invite_roommates">Invite Roommates</string>
+    <string name="add_roommates_save_changes">Save changes</string>
+
+    <!-- My posted rooms List -->
+
+    <!-- My Rooms List -->
+
+    <!-- Requests -->
+
+    <!-- Recommendations -->
+
+    <!-- My Room Detail -->
+    <string name="my_room_detail_booked">Booked</string>
+
+    <!-- My room rented to -->
+
+    <!-- My room rented date -->
+
+    <!-- My room book to -->
+
+    <!-- Push notifications -->
+
+    <!-- Tips -->
+
+    <!-- Change Password -->
+
+    <!-- Rate the App -->
+    <string name="dialog_rate_app_title">Do you like our app?</string>
+    <string name="dialog_rate_app_message">Rate it so you can help us improve. Thanks :)</string>
+    <string name="dialog_rate_app_satisfaction_sad">Bueh</string>
+    <string name="dialog_rate_app_satisfaction_normal">So-so</string>
+    <string name="dialog_rate_app_satisfaction_happy">Like it</string>
+    <string name="dialog_rate_app_satisfaction_very_happy">Love it</string>
+    <string name="dialog_rate_app_button_send">Send</string>
+
+    <!-- My Account -->
+
+    <!-- Add Account -->
+
+    <!-- Atrápalo promo -->
+
+    <!-- Unicode characters -->
+    <string name="emoticon_ok_hand" translatable="false">👌</string>
+    <string name="emoticon_winking_face" translatable="false">😉</string>
+
+    <!-- Payments: Payments Data -->
+
+    <!-- Payments: Add credit card -->
+
+    <!-- Booking Request -->
+
+    <!-- Payment Information Request -->
+
+    <!-- Create Booking Request -->
+
+    <!-- Booking My Room Detail -->
+
+    <!-- Booking Activity -->
+
+    <!-- Booking Information -->
+
+    <!-- Booking Help -->
+    <string name="phone_dial_chooser">Phone dial</string>
+
+    <!-- Booking Tutorial -->
+
+</resources>

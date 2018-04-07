@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="375dp">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="2dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/container_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/button_background_grey_transparency">
+
+                    <ImageView
+                        android:id="@+id/image_verified_profile"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_check_green"/>
+
+                    <RelativeLayout
+                        android:id="@+id/border_thumbnail_user_room"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:transitionName="@string/transition_tenant_image"
+                        android:background="@drawable/img_circle_border_green">
+
+                        <ImageView
+                            android:id="@+id/image_thumbnail_user_room"
+                            android:layout_width="43dp"
+                            android:layout_height="43dp"
+                            android:layout_centerInParent="true"
+                            android:scaleType="centerCrop"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/ic_placeholder_profile_round"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text_user_name_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@+id/border_thumbnail_user_room"
+                        android:layout_toEndOf="@+id/border_thumbnail_user_room"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        tools:text="Mike, 28"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/container_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="@drawable/button_background_grey_transparency">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/images_room_viewpager"
+                        android:transitionName="@string/transition_room_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_above="@+id/layout_info_room"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"/>
+
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/images_room_indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_above="@+id/layout_info_room"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/red_300"
+                        android:textColor="@color/white"
+                        android:paddingTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:visibility="gone"
+                        android:text="@string/text_label_denied"/>
+
+                    <TextView
+                        android:id="@+id/text_title_room"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentBottom="true"
+                        tools:text="Title super long for sunny double room"/>
+
+                    <LinearLayout
+                        android:id="@+id/layout_info_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_above="@id/text_title_room">
+
+                        <TextView
+                            android:id="@+id/text_value_room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/green_500"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginRight="5dp"
+                            tools:text="1100€/month"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"/>
+
+                        <ImageButton
+                            android:id="@+id/button_send_request_room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:src="@drawable/button_request_state_list"
+                            android:background="@color/transparent"/>
+
+                        <ImageButton
+                            android:id="@+id/button_delete_room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_trash"
+                            android:background="@color/transparent"/>
+
+                        <ImageButton
+                            android:id="@+id/button_share_room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:src="@drawable/button_share_state_list"
+                            android:background="@color/transparent"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+    <RelativeLayout
+        android:id="@+id/label_my_room"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_tag_my_room"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="30dp"
+            android:textColor="@color/white"
+            android:text="@string/text_label_my_room"
+            android:rotation="+45"/>
+    </RelativeLayout>
+</RelativeLayout>

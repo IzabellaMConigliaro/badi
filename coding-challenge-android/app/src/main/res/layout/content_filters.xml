@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".presentation.search.FiltersActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp"
+        android:orientation="vertical"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_available_from"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_filters_available_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginBottom="15dp"
+            android:text="@string/filters_now"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingEnd="0dp"
+            android:paddingRight="0dp"
+            android:textColor="@color/grey_400"
+            android:button="@drawable/checkbox_selector"/>
+
+        <CheckBox
+            android:id="@+id/checkbox_filters_available_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_choose_date"
+            android:textColor="@color/grey_400"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingEnd="0dp"
+            android:paddingRight="0dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:button="@drawable/checkbox_selector"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_maximum_price"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_maximum_price_description"
+            android:textColor="@color/grey_400"
+            android:layout_marginBottom="15dp"/>
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tied_filters_price"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/filters_no_price"
+            android:textColorHint="@color/grey_300"
+            android:textSize="32sp"
+            android:maxLines="1"
+            android:maxLength="9"
+            android:gravity="center"
+            android:inputType="number"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/img_rectangle_border_grey"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_badis_gender"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_badis_gender_description"
+            android:textColor="@color/grey_400"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/button_gender_all_female"
+                android:tag="@string/filters_tag_gender_female"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/filters_gender_all_female"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_gender_female"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_gender_all_male"
+                android:tag="@string/filters_tag_gender_male"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/filters_gender_all_male"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_gender_male"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_gender_both"
+                android:tag="@string/filters_tag_gender_mix"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/filters_gender_both"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_gender_both"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_badis_total"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_badis_total_description"
+            android:textColor="@color/grey_400"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_number_minimum_tenants_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/filters_badis_total_minimum"
+                android:textColor="@color/grey_400"
+                android:gravity="center"
+                android:drawablePadding="15dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/text_number_minimum_tenants"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/filters_badis_total_amount_undefined"
+                android:textSize="26sp"
+                android:textColor="@color/grey_400"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                tools:text="0"/>
+
+            <ImageView
+                android:id="@+id/button_remove_minimum_tenant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/img_list_room_remove"/>
+
+            <ImageView
+                android:id="@+id/button_add_minimum_tenant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_list_room_add"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/text_number_maximum_tenants_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/filters_badis_total_maximum"
+                android:textColor="@color/grey_400"
+                android:gravity="center"
+                android:drawablePadding="15dp"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/text_number_maximum_tenants"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/filters_badis_total_amount_undefined"
+                android:textSize="26sp"
+                android:textColor="@color/grey_400"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                tools:text="0"/>
+
+            <ImageView
+                android:id="@+id/button_remove_maximum_tenant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/img_list_room_remove"/>
+
+            <ImageView
+                android:id="@+id/button_add_maximum_tenant"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_list_room_add"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_bed_type"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/button_single_bed"
+                android:tag="@string/filters_tag_single_bed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_single_bed"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_single_bed"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_double_bed"
+                android:tag="@string/filters_tag_double_bed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_double_bed"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_double_bed"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_sofa_bed"
+                android:tag="@string/filters_tag_sofa_bed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_sofa_bed"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_sofa_bed"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="15dp">
+
+            <CheckBox
+                android:id="@+id/button_unfurnished"
+                android:tag="@string/filters_tag_unfurnished"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_unfurnished"
+                android:textSize="15sp"
+                android:textColor="@color/selector_filter_color"
+                android:drawableTop="@drawable/button_filters_no_bed"
+                android:drawablePadding="8dp"
+                android:background="@color/transparent"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_room_amenities"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/button_private_bathroom"
+                android:tag="@string/filters_tag_private_bathroom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_private_bathroom"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_private_bathroom"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_window"
+                android:tag="@string/filters_tag_window"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_exterior_view"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_window"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_terrace"
+                android:tag="@string/filters_tag_terrace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_balcony"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_terrace"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_friendly_rules"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <CheckBox
+                android:id="@+id/button_smoker_friendly"
+                android:tag="@string/filters_tag_smokers_friendly"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_smokers_friendly"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_smoker_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_couples_accepted"
+                android:tag="@string/filters_tag_couples_accepted"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_couples_accepted"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_couples_accepted"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_pets_friendly"
+                android:tag="@string/filters_tag_pet_allowed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_pet_allowed"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_pet_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/grey_divider_line"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:text="@string/filters_general_amenities"
+            android:textColor="@color/green_500"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_wifi"
+                android:tag="@string/filters_tag_wifi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_wifi"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_wifi"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_tv"
+                android:tag="@string/filters_tag_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_tv"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_tv"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_elevator"
+                android:tag="@string/filters_tag_elevator"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_elevator"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_elevator"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_heating"
+                android:tag="@string/filters_tag_heating"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_heating"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_heating"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_air_conditioner"
+                android:tag="@string/filters_tag_air_conditioner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_air_conditioner"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_air_conditioner"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_furnished"
+                android:tag="@string/filters_tag_furnished"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_furnished"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_furnished"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_washing_machine"
+                android:tag="@string/filters_tag_washing_machine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_washing_machine"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_washing_machine"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_dishwasher"
+                android:tag="@string/filters_tag_dishwasher"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_dish_washer"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_dishwasher"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_dryer"
+                android:tag="@string/filters_tag_dryer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_dryer"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_dryer"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_parking"
+                android:tag="@string/filters_tag_parking"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_parking"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_parking"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_pool"
+                android:tag="@string/filters_tag_pool"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_pool"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_pool"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_doorman"
+                android:tag="@string/filters_tag_doorman"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_doorman"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_doorman"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_wheelchair_friendly"
+                android:tag="@string/filters_tag_wheelchair_friendly"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_wheelchair"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_wheelchair_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

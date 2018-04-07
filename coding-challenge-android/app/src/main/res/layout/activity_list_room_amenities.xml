@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.listroom.ListRoomAmenitiesActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/collapsing_toolbar_edit_profile_height"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="@string/list_room_amenities"
+            app:expandedTitleGravity="bottom|center"
+            app:collapsedTitleTextAppearance="@style/CollapsingToolbarAppearanceGreen"
+            app:expandedTitleTextAppearance="@style/CollapsingToolbarAppearanceGreen"
+            app:contentScrim="@color/white">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_close_green"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:layout_collapseMode="pin" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_list_room_amenities"/>
+
+    <Button
+        android:id="@+id/button_list_room_amenities_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="@dimen/text_size_match_parent_button"
+        android:text="@string/filters_apply"
+        android:layout_marginTop="40dp"
+        android:padding="20dp"
+        android:background="@drawable/button_background_green"
+        app:layout_anchorGravity="bottom"
+        android:layout_gravity="bottom"/>
+
+</android.support.design.widget.CoordinatorLayout>

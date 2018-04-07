@@ -1,0 +1,115 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".presentation.search.MapFragment">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_rooms_map"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_map_height"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/viewpager_map_vertical_padding"
+        android:paddingBottom="@dimen/viewpager_map_vertical_padding"
+        android:paddingStart="@dimen/viewpager_map_horizontal_padding"
+        android:paddingLeft="@dimen/viewpager_map_horizontal_padding"
+        android:paddingEnd="@dimen/viewpager_map_horizontal_padding"
+        android:paddingRight="@dimen/viewpager_map_horizontal_padding"
+        android:layout_alignParentBottom="true"
+        tools:listitem="@layout/item_room_map"/>
+
+    <RelativeLayout
+        android:id="@+id/view_search_loading"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_map_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/image_map_rooms_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_search_map"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:clickable="false"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/map_fragment_searching_in_this_area"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_toStartOf="@+id/image_map_rooms_loading"
+            android:layout_toLeftOf="@+id/image_map_rooms_loading"
+            android:clickable="false"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/view_map_rooms_empty"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/viewpager_map_height"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/image_map_rooms_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_search_map"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:clickable="false"/>
+
+        <TextView
+            android:text="@string/error_rooms_unavailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/image_map_rooms_empty"
+            android:layout_toLeftOf="@+id/image_map_rooms_empty"
+            android:gravity="center"
+            android:clickable="false"/>
+
+    </RelativeLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.badi.common.utils.map.TouchableMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/viewpager_rooms_map"/>
+
+    <FrameLayout
+        android:id="@+id/view_search_blocker_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9FFF"
+        android:clickable="true"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"/>
+
+    </FrameLayout>
+
+</RelativeLayout>

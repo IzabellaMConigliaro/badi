@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".presentation.search.SearchFragment"
+    tools:showIn="@layout/fragment_search">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin_android"
+        android:paddingTop="@dimen/activity_vertical_margin_android">
+
+        <TextView
+            android:id="@+id/button_search_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin_android"
+            android:layout_marginStart="@dimen/activity_horizontal_margin_android"
+            android:background="@drawable/button_background_round_grey"
+            android:drawableLeft="@drawable/ic_search_grey"
+            android:drawableStart="@drawable/ic_search_grey"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/search_hint_type_a_city_or_location"
+            android:textColor="@color/grey_400"
+            android:textSize="@dimen/text_size_medium"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_current_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_background_grey_default"
+            android:drawableLeft="@drawable/ic_my_location"
+            android:drawablePadding="15dp"
+            android:drawableStart="@drawable/ic_my_location"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="@string/search_nearby"
+            android:textAllCaps="false"
+            android:textColor="@color/green_500"
+            android:textSize="@dimen/text_size_small"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_country" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

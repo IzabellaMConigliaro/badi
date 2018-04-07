@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.badi">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!--
+             The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+             Google Maps Android API v2, but you must specify either coarse or fine
+             location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <permission
+        android:name="${applicationId}.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <application
+        android:name=".BadiApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".presentation.main.MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="@string/web_host"
+                    android:pathPattern="/.*/chats"
+                    android:scheme="https"/>
+                <data
+                    android:host="@string/web_host"
+                    android:pathPattern="/.*/invitations"
+                    android:scheme="https"/>
+                <data
+                    android:host="@string/web_host"
+                    android:pathPattern="/.*/find-a-badi"
+                    android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.search.SearchPlaceActivity"
+            android:parentActivityName=".presentation.main.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.main.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.roomdetail.RoomDetailActivity"
+            android:parentActivityName=".presentation.main.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Green">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.main.MainActivity"/>
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="@string/web_host"
+                    android:pathPrefix="/room/"
+                    android:scheme="https"/>
+                <data
+                    android:host="@string/web_host"
+                    android:pathPattern="/.*/room/"
+                    android:scheme="https"/>
+                <data
+                    android:host="@string/web_host"
+                    android:pathPattern="/.*/room/.*/..*"
+                    android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".presentation.search.FiltersActivity"
+            android:parentActivityName=".presentation.main.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.main.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.listroom.ListRoomActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName=".presentation.main.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.main.MainActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.listroom.ListRoomPlaceActivity"
+            android:parentActivityName=".presentation.listroom.ListRoomActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.listroom.ListRoomActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.listroom.ListRoomRoommatesActivity"
+            android:parentActivityName=".presentation.listroom.ListRoomActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.listroom.ListRoomActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.listroom.ListRoomAmenitiesActivity"
+            android:parentActivityName=".presentation.listroom.ListRoomActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.listroom.ListRoomActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.roomdetail.GalleryActivity"
+            android:parentActivityName=".presentation.roomdetail.RoomDetailActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.roomdetail.RoomDetailActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.roomdetail.MapsActivity"
+            android:parentActivityName=".presentation.roomdetail.RoomDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Green.Window">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.roomdetail.RoomDetailActivity"/>
+        </activity>
+        <activity
+            android:name=".presentation.roomdetail.AmenitiesActivity"
+            android:parentActivityName=".presentation.roomdetail.RoomDetailActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".presentation.roomdetail.RoomDetailActivity"/>
+        </activity>
+
+        <!-- The Google Play Services version -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key"/>
+
+    </application>
+
+</manifest>

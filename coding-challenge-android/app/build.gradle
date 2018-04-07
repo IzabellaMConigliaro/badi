@@ -1,0 +1,194 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+//apply from: '../config/quality/quality.gradle'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    maven { url 'https://jitpack.io' }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+
+    defaultConfig {
+        applicationId "com.badi"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ['autovaluegson.defaultCollectionsToEmpty': 'true']
+            }
+        }
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('keystore/debug.keystore')
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            useProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        staging {
+            applicationId "com.badi.staging"
+            dimension "default"
+            resValue "string", "app_name", "Badi CC"
+            resValue "string", "web_host", "webnext.badiapp.com"
+            buildConfigField "String", "API_URL", "\"https://apinext.badiapp.com\""
+            buildConfigField "String", "WEB_URL", "\"https://webnext.badiapp.com\""
+            buildConfigField "String", "GEOCODING_API_KEY", "\"AIzaSyAle35W8GzxbhBHBmtFfJyKligDOwwR0A4\""
+        }
+    }
+
+    // Enable Java 8 Language Features
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    //Needed because of this https://github.com/square/okio/issues/58
+    lintOptions {
+        warning 'InvalidPackage'
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    final PLAY_SERVICES_VERSION = '11.8.0'
+    final SUPPORT_LIBRARY_VERSION = '27.1.1'
+    final BUTTERKNIFE_VERSION = '8.8.1'
+    final RETROFIT_VERSION = '2.2.0'
+    final OKHTTP_LOGGING_INTERCEPTOR_VERSION = '3.6.0'
+    final RX_JAVA_VERSION = '2.1.7'
+    final RX_ANDROID_VERSION = '2.0.1'
+    final DAGGER_VERSION = '2.13'
+    final JSR250_VERSION = '1.0'
+    final JUNIT_VERSION = '4.12'
+    final MOCKITO_VERSION = '2.12.0'
+    final ESPRESSO_VERSION = '3.0.1'
+    final RUNNER_VERSION = '1.0.1'
+    final TIMBER_VERSION = '4.6.0'
+    final CIRCLE_INDICATOR_VERSION = '1.2.2'
+    final CALLIGRAPHY_VERSION = '2.3.0'
+    final GLIDE_VERSION = '4.5.0'
+    final SCALE_IMAGE_VIEW_VERSION = '3.9.0'
+    final EASY_IMAGE_VERSION = '2.0.4'
+    final CIRCLE_IMAGE_VIEW_VERSION = '2.2.0'
+    final AUTO_VALUE_VERSION = '1.5'
+    final AUTO_VALUE_PARCEL_VERSION = '0.2.5'
+    final AUTO_VALUE_GSON_VERSION = '0.6.0'
+    final GSON_VERSION = '2.8.0'
+    final CONSTRAINT_VERSION = '1.0.2'
+
+    // Presentation Dependencies
+    implementation "com.android.support:support-v4:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:customtabs:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:support-v13:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:animated-vector-drawable:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:exifinterface:$SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support.constraint:constraint-layout:$CONSTRAINT_VERSION"
+    implementation "me.relex:circleindicator:$CIRCLE_INDICATOR_VERSION@aar"
+    implementation "uk.co.chrisjenx:calligraphy:$CALLIGRAPHY_VERSION"
+    implementation "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GLIDE_VERSION"
+    implementation "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VIEW_VERSION"
+    implementation "com.davemorrissey.labs:subsampling-scale-image-view:$SCALE_IMAGE_VIEW_VERSION"
+    implementation "com.github.jkwiecien:EasyImage:$EASY_IMAGE_VERSION"
+    implementation "com.jakewharton:butterknife:$BUTTERKNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTERKNIFE_VERSION"
+
+    //App dependencies
+    implementation "com.google.android.gms:play-services-gcm:$PLAY_SERVICES_VERSION"
+    implementation "com.google.android.gms:play-services-location:$PLAY_SERVICES_VERSION"
+    implementation "com.google.android.gms:play-services-analytics:$PLAY_SERVICES_VERSION"
+    implementation "com.google.android.gms:play-services-maps:$PLAY_SERVICES_VERSION"
+    implementation "com.google.android.gms:play-services-places:$PLAY_SERVICES_VERSION"
+    implementation "com.google.android.gms:play-services-auth:$PLAY_SERVICES_VERSION"
+    implementation "com.google.firebase:firebase-core:$PLAY_SERVICES_VERSION"
+    implementation "com.google.firebase:firebase-messaging:$PLAY_SERVICES_VERSION"
+    implementation "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    implementation "com.squareup.okhttp3:logging-interceptor:$OKHTTP_LOGGING_INTERCEPTOR_VERSION"
+
+    implementation "io.reactivex.rxjava2:rxjava:$RX_JAVA_VERSION"
+    implementation "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION"
+
+    // Replace provided dependency below with official AutoValue once this issue is fixed
+    // https://github.com/google/auto/issues/268
+    compileOnly "com.jakewharton.auto.value:auto-value-annotations:$AUTO_VALUE_VERSION"
+    compileOnly "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    annotationProcessor "com.google.auto.value:auto-value:$AUTO_VALUE_VERSION"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-parcel:$AUTO_VALUE_PARCEL_VERSION"
+    annotationProcessor "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+    compileOnly "com.ryanharter.auto.value:auto-value-gson:$AUTO_VALUE_GSON_VERSION"
+    implementation "com.google.code.gson:gson:$GSON_VERSION"
+
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    annotationProcessor "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    compileOnly "javax.annotation:jsr250-api:$JSR250_VERSION"
+
+    implementation "com.jakewharton.timber:timber:$TIMBER_VERSION"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$JUNIT_VERSION"
+    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+
+    // Dependencies for Android unit tests
+    androidTestImplementation "junit:junit:$JUNIT_VERSION"
+
+    // Espresso UI Testing
+    androidTestImplementation "com.android.support.test:runner:$RUNNER_VERSION"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,41 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">5dp</dimen>
+    <dimen name="activity_vertical_margin">5dp</dimen>
+    <dimen name="activity_horizontal_margin_android">16dp</dimen>
+    <dimen name="activity_vertical_margin_android">16dp</dimen>
+    <dimen name="activity_horizontal_margin_android_double">32dp</dimen>
+
+    <dimen name="tab_text_size">18sp</dimen>
+    <dimen name="text_size_info">17sp</dimen>
+
+    <dimen name="text_size_button">19sp</dimen>
+
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+
+    <dimen name="text_size_collapsing_toolbar_search_expanded">23sp</dimen>
+    <dimen name="text_size_collapsing_toolbar_search_collapsed">18sp</dimen>
+
+    <dimen name="text_size_room_title">17sp</dimen>
+
+    <dimen name="default_corner_radius">5dp</dimen>
+    <dimen name="default_stroke_size">3dp</dimen>
+    <dimen name="stroke_size_minimum">1dp</dimen>
+
+    <!--Viewpager dimens-->
+    <!-- sets a margin b/w individual pages to ensure that there is a gap b/w them -->
+    <dimen name="viewpager_page_margin">1dp</dimen>
+    <dimen name="viewpager_map_height">150dp</dimen>
+    <!-- set padding manually, the more you set the padding the more you see of prev & next page -->
+    <dimen name="viewpager_map_horizontal_padding">10dp</dimen>
+    <dimen name="viewpager_map_vertical_padding">5dp</dimen>
+
+    <dimen name="detail_room_image_height">256dp</dimen>
+    <dimen name="collapsing_toolbar_edit_profile_height">110dp</dimen>
+
+    <dimen name="statusBarSize">24dp</dimen>
+
+    <dimen name="text_size_match_parent_button">21sp</dimen>
+
+</resources>

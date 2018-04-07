@@ -1,0 +1,417 @@
+<resources>
+    <string name="title_filters">Filtri</string>
+    <string name="title_list_room">Pubblica una stanza</string>
+    <string name="title_edit_room">Modifica stanza</string>
+
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <string name="list_tab_text">lista</string>
+    <string name="map_tab_text">mappa</string>
+
+    <!-- Menu actions -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="menu_search_filter">Filtri</string> <!-- Not in iOS -->
+    <string name="menu_room_detail_share">Condividi</string> <!-- Not in iOS -->
+    <string name="menu_filters_clear_all">Cancella tutto</string>
+
+    <!-- Permission messages -->
+    <!-- Not in iOS -->
+    <string name="permission_available_location">I permessi di localizzazione sono stati concessi.</string> <!-- Not in iOS -->
+    <string name="permissions_not_granted">I permessi non sono stati concessi.</string> <!-- Not in iOS -->
+    <string name="permission_location_rationale">Per mostrare stanze nella tua ubicazione attuale sono necessari i permessi di localizzazione.</string> <!-- Not in iOS -->
+    <string name="permission_write_external_storage_rationale">Per selezionare immagini dal rullino fotografico devi concedere i permessi di scrittura su dispositivo esterno</string> <!-- Not in iOS -->
+
+    <!-- Exception messages -->
+    <string name="exception_message_generic">Si è verificato un errore</string> <!-- Not in iOS -->
+    <string name="exception_message_no_connection">Oops, non hai connessione a internet.</string>
+    <string name="exception_message_unexpected_error">Oops, si è verificato un errore</string> <!-- Not in iOS -->
+
+    <!-- Dialog messages -->
+    <!-- Not in iOS -->
+
+    <!-- Choose Image -->
+    <string name="image_choose_input_method">Seleziona una immagine dalla fotocamera o dalla galleria</string> <!-- Not in iOS -->
+    <string name="message_uploading_image">Caricamento immagine…</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In Social-->
+
+    <!-- Sign In -->
+
+    <!-- Forgot Password -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Verify Options -->
+
+    <!-- Promo code -->
+
+    <!-- Errors -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_incorrect_password">Oops, la password è incorretta.</string>
+    <string name="error_field_required">Campo richiesto</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_list_room_no_pictures">Devi caricare almeno una fotografia della stanza per procedere alla pubblicazione</string> <!-- Not in iOS -->
+    <string name="error_list_room_bills_included">Per favore seleziona se le spese sono incluse o no</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_from">Specifica quando la stanza sarà disponibile</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_to">Specifica quando la stanza non sarà più disponibile</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_tenants">Aggiungi tutte le persone che vivono nell\'appartamento (tu incluso)</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_type_bed_selected">Specifica il tipo di letto disponibile nella stanza</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_amenities">Aggiungi almeno una caratteristica</string> <!-- Not in iOS -->
+
+    <!-- Api Errors -->
+    <string name="error_warning">Oh no!</string> <!-- Not in iOS -->
+    <string name="error_authentication">Oops, c\'è stato un problema con l\'autenticazione. Per favore riprova e se l\'errore persiste contatta il supporto clienti.</string>
+    <string name="error_invalid_context">Oops, devi essere autenticato per eseguire questa operazione!</string>
+    <string name="error_no_access">Oops, non puoi accedere a questa sezione. Per favore contatta il supporto clienti.</string>
+    <string name="error_resource_not_found">Oops, questo contenuto non è disponibile. Per favore contatta il supporto clienti.</string>
+    <string name="error_resource_already_confirmed_by_another_user">Oops! Questa informazione è già utilizzata da un altro utente.</string>
+    <string name="error_non_available">Oops, questo contenuto non è disponibile. Per favore contatta il supporto clienti.</string>
+    <string name="error_forbidden_operation">Oops, non hai i privilegi per eseguire questa operazione! Per favore contatta il supporto clienti.</string>
+    <string name="error_invalid_params">Oops, c\'è stato un errore con uno o più campi invitati. Riprova più tardi o contatta il supporto clienti.</string> <!-- Not in iOS -->
+    <string name="error_invalid_record">Oops, c\'è stato un errore con uno o più campi invitati. Riprova più tardi o contatta il supporto clienti.</string>
+    <string name="error_invalid_facebook_token">Oops, c\'è stato un errore sconosciuto con Facebook. Riprova più tardi o contatta il supporto clienti.</string>
+    <string name="error_invalid_sms_request">Oops, non è stato possibile processare la richiesta di verifica. Riprova più tardi o contatta il supporto clienti.</string>
+    <string name="error_concurrent_verification_sms">Hai già richiesto un SMS di verifica. Se non lo ricevi entro 5 minuti riprova.</string>
+    <string name="error_unknown_sms_verification">Oops,  c\'è stato un errore sconosciuto con il servizio di verifica via SMS. Riprova più tardi o contatta il supporto clienti.</string>
+    <string name="error_no_match_login_type">Oops, non ho trovato nessun utente con questa email e login. Sei certo di non esserti registrato con un\'altro metodo (es. Facebook o G+)?</string>
+    <string name="error_email_not_found">Oops, non ho trovato nessun utente con questo indirizzo e-mail</string>
+    <string name="error_email_already_exists">Oops, questo indirizzo email esiste già</string>
+    <string name="error_facebook_login_exists">Oops, questo account di Facebook è già in uso da parte di un altro utente.</string>
+    <string name="error_google_login_exists">Oops, questo account di Google è già in uso da parte di un altro utente.</string>
+    <string name="error_unknown_exception">Oops, c\'è stato un errore sconosciuto. Riprova più tardi o contatta il supporto clienti.</string>
+    <string name="error_invalid_postal_code">Oops! Il codice postale non è corretto per il Paese selezionato.</string>
+    <string name="error_invalid_account_number">Oops! Il numero del conto corrente non è valido. Per favore controlla che sia corretto.</string>
+    <string name="error_invalid_account_country">Oops! Il Paese del conto corrente non è valido. Per favore controlla che il conto corrente sia del pase del tuo conto.</string>
+    <string name="error_no_match_password_confirmation">Opsss! Sembra che le due password non coincidano.</string>
+    <string name="error_request_already_answered">Opsss! Questa richiesta ha già avuto una risposta</string>
+    <string name="error_request_non_archivable">Opsss! Non è possibile archiviare questa richiesta!</string>
+    <string name="error_room_is_frozen">Opsss! Questa stanza non può essere modificata</string>
+    <string name="error_user_with_no_payment_data">Opsss! Manca il metodo di pagamento</string>
+    <string name="error_user_with_no_payout_data">Opsss! Mancano i dettagli del pagamento</string>
+    <string name="error_booking_proposal_in_progress">Opsss! Non è possibile inviare una richiesta di prenotazione mentre ne hai un\'altra a cui rispondere</string>
+    <string name="error_cant_leave_chat">Opsss! Non è possibile abbandonare la chat perché c\'è una prenotazione in comune. Se vuoi abbandonarla, per favore, contatta il servizio clienti</string>
+    <string name="error_cant_block_chat">Opsss! Non è possibile bloccare la chat perché c\'è una prenotazione in comune. Se vuoi abbandonarla, per favore, contatta il servizio clienti</string>
+    <string name="error_location_service">Errore temporaneo: non è possibile connettersi al servizio di geolocalizzazione. Per favore, riavvia la app.</string>
+
+    <!-- Stripe Errors -->
+    <string name="error_stripe_invalid_number">Il numero della carta di credito non è valido.</string>
+    <string name="error_stripe_invalid_expiry_month">Il mese di scadenza della carta di credito non è valido.</string>
+    <string name="error_stripe_invalid_expiry_year">L\'anno della carta di credito non è valido.</string>
+    <string name="error_stripe_invalid_cvc">Il codice di sicurezza della carta di credito non è valido.</string>
+    <string name="error_stripe_invalid_swipe_data">I dettagli della carta di credito non sono corretti.</string>
+    <string name="error_stripe_incorrect_number">Il numero della carta di credito non è valido.</string>
+    <string name="error_stripe_expired_card">La carta di credito è scaduta.</string>
+    <string name="error_stripe_incorrect_cvc">Il codice di sicurezza della carta di credito non è corretto.</string>
+    <string name="error_stripe_incorrect_zip">Non è possibile verificare il codice postale della carta di credito.</string>
+    <string name="error_stripe_card_declined">La carta di credito non è stata accettata.</string>
+    <string name="error_stripe_missing">Non è stata introdotta nessuna carta di credito.</string>
+    <string name="error_stripe_processing_error">Si è verificato un errore durante l\'elaborazione dei dati della carta di credito.</string>
+
+    <!-- Profile -->
+    <string name="profile_years_old">%d anni</string>
+    <string name="profile_other">Altro</string> <!-- Not in iOS -->
+    <string name="profile_language_arabic">Arabo</string>
+    <string name="profile_language_indonesian">Indonesiano</string>
+    <string name="profile_language_chinese">Cinese</string>
+    <string name="profile_language_czech">Ceco</string>
+    <string name="profile_language_danish">Danese</string>
+    <string name="profile_language_german">Tedesco</string>
+    <string name="profile_language_greek">Greco</string>
+    <string name="profile_language_english">Inglese</string>
+    <string name="profile_language_esperanto">Esperanto</string>
+    <string name="profile_language_spanish">Spagnolo</string>
+    <string name="profile_language_french">Francese</string>
+    <string name="profile_language_hindi">Hindi</string>
+    <string name="profile_language_italian">Italiano</string>
+    <string name="profile_language_japanese">Giapponese</string>
+    <string name="profile_language_korean">Coreano</string>
+    <string name="profile_language_hungarian">Ungherese</string>
+    <string name="profile_language_dutch">Olandese</string>
+    <string name="profile_language_norwegian">Norvegese</string>
+    <string name="profile_language_polish">Polacco</string>
+    <string name="profile_language_portuguese">Portoghese</string>
+    <string name="profile_language_romanian">Romeno</string>
+    <string name="profile_language_russian">Russo</string>
+    <string name="profile_language_finnish">Finlandese</string>
+    <string name="profile_language_swedish">Svedese</string>
+    <string name="profile_language_swahili">Swahili</string>
+    <string name="profile_language_turkish">Turco</string>
+    <string name="profile_language_catalan">Catalano</string>
+    <string name="profile_language_basque">Basco</string>
+    <string name="profile_language_galician">Galiziano</string>
+    <string name="profile_language_thai">Tailandese</string>
+    <string name="profile_language_vietnamese">Vietnamita</string>
+
+    <!-- Profile -->
+    <string name="edit_profile_name">Nome</string>
+    <string name="edit_profile_female">donna</string>
+    <string name="edit_profile_male">uomo</string>
+    <string name="edit_profile_characters_left">%d caratteri rimanenti</string>
+    <string name="edit_profile_location_information">(Non mostreremo la tua posizione esatta)</string>
+
+    <!-- Search -->
+    <string name="search_title">Dove vorresti vivere?</string>
+    <string name="search_hint_type_a_city_or_location">Specifica una città o località</string>
+    <string name="search_hint_type_address">Scrivi l\'indirizzo</string>
+    <string name="search_nearby">Ricerca nelle vicinanze</string>
+    <string name="search_list_a_room">Pubblica</string>
+    <string name="search_suggested">Raccomandate</string>
+    <string name="search_my_location">Mia posizione</string>
+
+    <string name="country_spain">Spagna</string>
+    <string name="city_barcelona">Barcellona</string>
+    <string name="city_madrid">Madrid</string>
+    <string name="city_valencia">Valencia</string>
+    <string name="city_seville">Siviglia</string>
+    <string name="city_granada">Granada</string>
+    <string name="city_malaga">Malaga</string>
+    <string name="city_bilbao">Bilbao</string>
+    <string name="city_alacant">Alicante</string>
+    <string name="city_salamanca">Salamanca</string>
+
+    <string name="country_italy">Italia</string>
+    <string name="city_rome">Roma</string>
+    <string name="city_milan">Milano</string>
+    <string name="city_bologna">Bologna</string>
+    <string name="city_florence">Firenze</string>
+    <string name="city_pisa">Pisa</string>
+
+    <!-- Search Suggestions Place Type Tags -->
+    <string name="search_suggestion_tag_region">zona</string>
+    <string name="search_suggestion_tag_country">nazione</string>
+    <string name="search_suggestion_tag_establishment">attività</string>
+    <string name="search_suggestion_tag_city">città</string>
+    <string name="search_suggestion_tag_neighborhood">quartiere</string>
+    <string name="search_suggestion_tag_street">strada</string>
+    <string name="search_suggestion_tag_district">area</string>
+    <string name="search_suggestion_tag_transit_station">stazione di transito</string>
+
+    <!-- Search Results -->
+    <string name="search_result_see_more_rooms">Vuoi vedere più stanze? Cerca in un\'altra zona o prova a modificare i filtri selezionati.</string>
+
+    <!-- Filters -->
+    <string name="filters_apply">Applica</string>
+    <string name="filters_available_from">Disponibile a partire da:</string>
+    <string name="filters_now">Ora</string>
+    <string name="filters_choose_date">scegli una data</string>
+    <string name="filters_maximum_price">Prezzo massimo mensile</string>
+    <string name="filters_maximum_price_description">(Valuta paese)</string>
+    <string name="filters_badis_gender">Preferisco vivere con…</string>
+    <string name="filters_badis_gender_description">(Attualmente vivono nell\'appartamento)</string>
+    <string name="filters_gender_all_female">tutte donne</string>
+    <string name="filters_gender_all_male">tutti uomini</string>
+    <string name="filters_gender_both">entrambi</string>
+    <string name="filters_badis_total">Numero totale dei Badi</string>
+    <string name="filters_badis_total_description">(Attualmente vivono nell\'appartamento)</string>
+    <string name="filters_badis_total_minimum">minimo</string>
+    <string name="filters_badis_total_maximum">massimo</string>
+    <string name="filters_bed_type">Tipo di letto</string>
+    <string name="filters_room_amenities">Caratteristiche della stanza</string>
+    <string name="filters_friendly_rules">Regole di casa</string>
+    <string name="filters_general_amenities">Caratteristiche generali</string>
+    <string name="date_room_day">1 giorno</string>
+    <string name="date_room_days">%d giorni</string>
+    <string name="date_room_week">1 settimana</string>
+    <string name="date_room_weeks">%d settimane</string>
+    <string name="date_room_month">1 mese</string>
+    <string name="date_room_months">%d mesi</string>
+    <string name="date_room_year">1 anno o più</string> <!-- Not in iOS -->
+    <string name="date_room_this_week">questa settimana</string>
+    <string name="date_room_over_a_week_ago">Oltre una settimana fa</string>
+    <string name="price_room_monthly">%1$d %2$s/mese</string>
+    <string name="button_send_request">Invia richiesta</string>
+    <string name="button_room_requested">Stanza richiesta</string> <!-- Not in iOS -->
+    <string name="text_share_room">Guarda la stanza che ho trovato con @badi_it #FindYourPlace %1$s%2$d</string>
+    <string name="text_share_room_with_city">Guarda la stanza che ho trovato a %1$s con @badi_it #FindYourPlace %2$s%3$d</string>
+    <string name="text_share_my_room">Ho una stanza libera a casa mia. Conoscete qualcuno interessato? Potete vederla su @badi_it %1$s%2$d</string>
+    <string name="text_share_room_chooser">Condividi</string>
+    <string name="text_label_room_not_available">Stanza non disponibile</string>
+    <string name="text_label_denied">Rifiutata</string>
+    <string name="text_label_my_room">Mia stanza</string>
+    <string name="error_rooms_unavailable">Oops! Non ci sono ancora stanze in questa località.</string>
+    <string name="title_map_search">Area della mappa selezionata</string>
+    <string name="published">Pubblicato</string>
+    <plurals name="amount_roommates">
+        <item quantity="one">%d coinquilino</item>
+        <item quantity="other">%d coinquilini</item>
+    </plurals>
+    <string name="room_detail_roommates">Coinquilini</string>
+    <string name="room_detail_min_stay">Soggiorno minimo</string>
+    <string name="room_detail_location">Ubicazione</string>
+    <string name="room_detail_now">Ora</string>
+    <string name="room_detail_available_from">Disponibile a partire da:</string>
+    <string name="room_detail_to">a</string>
+    <string name="room_detail_see_all">vedi tutte</string>
+
+    <!-- Amenities -->
+    <string name="amenities_title">Caratteristiche</string>
+    <string name="amenities_unfurnished">non ammobiliata</string>
+    <string name="amenities_sofa_bed">divano letto</string>
+    <string name="amenities_single_bed">letto singolo</string>
+    <string name="amenities_double_bed">letto matrimoniale</string>
+    <string name="amenities_tv">tv</string>
+    <string name="amenities_wifi">wifi</string>
+    <string name="amenities_air_conditioner">aria condizionata</string>
+    <string name="amenities_parking">parcheggio</string>
+    <string name="amenities_smokers_friendly">accetta fumatori</string>
+    <string name="amenities_pet_allowed">animali domestici</string>
+    <string name="amenities_elevator">ascensore</string>
+    <string name="amenities_heating">riscaldamento</string>
+    <string name="amenities_washing_machine">lavatrice</string>
+    <string name="amenities_dryer">asciugatrice</string>
+    <string name="amenities_doorman">portiere</string>
+    <string name="amenities_couples_accepted">accetta coppie</string>
+    <string name="amenities_furnished">ammobiliato</string>
+    <string name="amenities_pool">piscina</string>
+    <string name="amenities_private_bathroom">bagno privato</string>
+    <string name="amenities_balcony">balcone</string>
+    <string name="amenities_exterior_view">affaccio esterno</string>
+    <string name="amenities_dish_washer">lavastoviglie</string>
+    <string name="amenities_wheelchair">accessibile</string>
+
+    <!-- Tenant Detail -->
+    <string name="report_user_subject">Segnala utente con ID: %d</string>
+    <string name="report_user_body">Vorrei segnalare questo utente: \n\n Nome: %1$s \n ID: %2$d \n\n Grazie</string>
+    <string name="report_user_chooser">Segnala utente</string>
+
+    <!-- Map messages -->
+    <string name="map_fragment_searching_in_this_area">cerca in quest\'area</string>
+
+    <!-- Settings -->
+    <string name="invite_friend_email_subject">Dai un\'occhiata a Badi!</string>
+    <string name="invite_friend_email_body">Quando ho provato Badi ho pensato a te. Questa app ti permette di affittare stanze o cercare stanze in appartamenti condivisi e trovare i tuoi nuovi coinquilini. Credo proprio che ti piacerà %1$s \n\n %2$s</string>
+    <string name="invite_friend_chooser">Invita un amico</string>
+    <string name="report_bug_email_subject">C\'è qualcosa che non va…</string>
+    <string name="report_bug_email_body">Modello dispositivo: %1$s \n Versione OS: %2$s \n Versione App: %3$s \n App Build: %4$d \n ID utente: %5$s \n</string>
+    <string name="report_bug_chooser">Segnala un bug</string>
+    <string name="delete_account_email_subject">Per favore cancella il mio account</string>
+    <string name="delete_account_email_body">Mio ID: %d</string>
+    <string name="delete_account_chooser">Cancella account</string>
+    <string name="send_email_chooser">Invia email</string> <!-- Not in iOS -->
+
+    <!-- Chat -->
+
+    <!-- List room -->
+    <string name="list_room_pictures">Foto</string>
+    <string name="list_room_cover_placeholder">Foto di qualità + Quantità =\nPiù opportunità!</string>
+    <string name="list_room_long_press_to_order">Premere a lungo per ordinare</string>
+    <string name="list_room_about_the_room">Dettagli stanza</string>
+    <string name="list_room_room_title">Titolo stanza (es: Luminosa e soleggiata)</string>
+    <string name="list_room_location">Ubicazione</string>
+    <string name="list_room_price_month">Prezzo mensile</string>
+    <string name="list_room_bills_included">Le spese sono incluse?</string>
+    <string name="list_room_availability">Disponibilità</string>
+    <string name="list_room_from">Da</string>
+    <string name="list_room_right_now">adesso</string>
+    <string name="list_room_choose_date">scegli una data</string>
+    <string name="list_room_to">a</string>
+    <string name="list_room_we_ll_see">senza data</string>
+    <string name="list_room_minimum_stay_months">Soggiorno minimo (mesi)</string>
+    <string name="list_room_who_lives_there">Numero di coinquilini</string>
+    <string name="list_room_you_included">(includiti nella somma)</string>
+    <string name="list_room_badis">Badi</string>
+    <string name="list_room_edit">modifica</string>
+    <string name="list_room_type_of_bed">Tipo di letto</string>
+    <string name="list_room_amenities">Caratteristiche</string>
+    <string name="list_room_select_the_amenities">Scegli le caratteristiche</string>
+    <string name="list_room_description">Descrizione</string>
+    <string name="list_room_hint_description">Scrivi qualcosa in più sulla tua stanza, sull\'appartamento e i coinquilini</string>
+    <string name="list_room_yes">Sì</string>
+    <string name="list_room_no">No</string>
+    <string name="list_room_message_wait_for_upload">Stai caricando un\'immagine. Per favore attendi il completamento prima di caricare la seguente.</string>
+    <string name="list_room_address_title">Dove si trova l\'appartamento?</string>
+    <string name="list_room_save_changes">Salva modifiche</string>
+    <string name="list_room_place_save_location">Salva posizione</string>
+
+    <string name="room_button_reject_request">Non mi interessa</string>
+    <string name="room_button_accept_request">Chatta ora</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_add_roommates_title">Il tuo annuncio è più attraente se hai coinquilini!</string>
+    <string name="dialog_add_roommates_text">Aggiungili all\'annuncio per apparire meglio nei risultati di ricerca</string>
+    <string name="dialog_add_roommates_add_roommates">Aggiungi Badi</string>
+    <string name="dialog_add_roommates_later">Più tardi</string>
+    <string name="dialog_share_listing_title">Il tuo annuncio è pubblico!</string>
+    <string name="dialog_share_listing_text">Ottieni maggiore visibilità condividendo il tuo annuncio</string>
+    <string name="dialog_share_listing_share_ad">Condividi</string>
+    <string name="dialog_share_listing_later">Più tardi</string>
+    <string name="dialog_complete_profile_title">Completa il tuo profilo</string>
+    <string name="dialog_complete_profile_text">Completa il tuo profilo per avere maggiori possibilità di trovare il coinquilino perfetto.</string>
+    <string name="dialog_complete_profile">Completa profilo</string>
+    <string name="dialog_complete_profile_not_now">Non ora</string>
+    <string name="dialog_new_country_title">Ci siamo quasi…</string>
+    <string name="dialog_new_country_text">Presto atterreremo in Italia! Torna qui tra qualche giorno per trovare il coinquilino perfetto in questo bellissimo paese.</string>
+    <string name="dialog_new_country_awesome">Fantastico!</string>
+
+    <!-- Add roommates -->
+    <string name="add_roommates_title">Aggiungi Badi</string>
+    <string name="add_roommates_hint_search">Scrivi il nome qui</string>
+    <string name="add_roommates_whoops">Oops!</string>
+    <string name="add_roommates_no_roommate_found">Il tuo Badi non è qui</string>
+    <string name="add_roommates_cannot_find_roommates">Non trovi i tuoi coinquilini qui sopra?</string>
+    <string name="add_roommates_invite_roommates">Invita Coinquilini</string>
+    <string name="add_roommates_save_changes">Salva modifiche</string>
+
+    <!-- My posted rooms List -->
+
+    <!-- My Rooms List -->
+
+    <!-- Recommendations -->
+
+    <!-- My Room Detail -->
+    <string name="my_room_detail_booked">Prenotata</string>
+
+    <!-- My room rented to -->
+
+    <!-- My room rented date -->
+
+    <!-- My room book to -->
+
+    <!-- Tips -->
+
+    <!-- Change Password -->
+
+    <!-- Rate the App -->
+    <string name="dialog_rate_app_title">Ti piace la nostra app?</string>
+    <string name="dialog_rate_app_message">Dai una valutazione così ci aiuti a migliorare. Grazie :)</string>
+    <string name="dialog_rate_app_satisfaction_sad">Bleah</string>
+    <string name="dialog_rate_app_satisfaction_normal">Così-così</string>
+    <string name="dialog_rate_app_satisfaction_happy">Mi piace</string>
+    <string name="dialog_rate_app_satisfaction_very_happy">La adoro</string>
+    <string name="dialog_rate_app_button_send">Invia</string>
+
+    <!-- My Account -->
+
+    <!-- Add Account -->
+
+    <!-- Atrápalo promo -->
+
+    <!-- Payments: Payments Data -->
+
+    <!-- Payments: Add credit card -->
+
+    <!-- Booking Request -->
+
+    <!-- Payment Information Request -->
+
+    <!-- Create Booking Request -->
+
+    <!-- Booking Status / My Room Detail -->
+
+    <!-- Booking Information -->
+
+    <!-- Booking Help -->
+    <string name="phone_dial_chooser">Telefono</string>
+
+    <!-- Booking Tutorial -->
+
+</resources>

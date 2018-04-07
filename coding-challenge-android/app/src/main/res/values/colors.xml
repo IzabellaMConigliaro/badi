@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="primary">@color/white</color>
+    <color name="primary_dark">@color/white</color>
+    <color name="accent">@color/green_500</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#DD000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <!-- Colors Design -->
+    <color name="green_500">#0EDC84</color>
+    <color name="green_700">#0AA261</color>
+
+    <color name="green_500_alpha_30">#4D0EDC84</color>
+
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+
+    <color name="grey_divider_line">#dcdcdc</color>
+
+    <color name="red_500">#da0a40</color>
+    <color name="red_300">#ff6275</color>
+    <color name="grey_800">#4a4a4a</color>
+    <color name="grey_500">#828588</color>
+    <color name="grey_400">#BEBEBE</color>
+
+    <color name="blue_500">#4A90E2</color>
+
+    <!-- Fix action mode color set to white in Chat List -->
+    <color name="abc_input_method_navigation_guard" tools:override="true">@color/primary_dark</color>
+
+</resources>

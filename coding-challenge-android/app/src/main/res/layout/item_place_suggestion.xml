@@ -1,0 +1,54 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingEnd="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:paddingRight="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_place_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            tools:text="Place address title"/>
+
+        <TextView
+            android:id="@+id/text_place_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            tools:text="Place address subtitle"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_place_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_gravity="center_vertical"
+        android:textSize="12sp"
+        android:textColor="@color/green_500"
+        android:padding="6dp"
+        android:background="@drawable/button_background_rectangle_border_grey"
+        android:visibility="gone"
+        tools:text="transit station"
+        tools:visibility="visible"/>
+
+</LinearLayout>

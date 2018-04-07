@@ -1,0 +1,417 @@
+<resources>
+    <string name="title_filters">Filtres</string>
+    <string name="title_list_room">Publicar habitació</string>
+    <string name="title_edit_room">Editar habitació</string>
+
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <string name="list_tab_text">llista</string>
+    <string name="map_tab_text">mapa</string>
+
+    <!-- Menu actions -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="menu_search_filter">Filtres</string> <!-- Not in iOS -->
+    <string name="menu_room_detail_share">Compartir</string> <!-- Not in iOS -->
+    <string name="menu_filters_clear_all">Borrar filtres</string>
+
+    <!-- Permission messages -->
+    <!-- Not in iOS -->
+    <string name="permission_available_location">Permís de localització concedit!</string> <!-- Not in iOS -->
+    <string name="permissions_not_granted">Ep! No s\'han concedit els permisos. </string> <!-- Not in iOS -->
+    <string name="permission_location_rationale">Per veure les habitacions lliures a prop teu hauràs d\'activar la localització.</string> <!-- Not in iOS -->
+    <string name="permission_write_external_storage_rationale">Per seleccionar les imatges de la teva càmera hauràs d\'activar els permisos d\'emmagatzematge.</string> <!-- Not in iOS -->
+
+    <!-- Exception messages -->
+    <string name="exception_message_generic">Ups! Sembla que hi ha hagut un error a l\'aplicació.</string> <!-- Not in iOS -->
+    <string name="exception_message_no_connection">Ups! Sembla que no hi ha connexió a internet. </string>
+    <string name="exception_message_unexpected_error">Ups! Sembla que hi ha hagut un error!</string> <!-- Not in iOS -->
+
+    <!-- Dialog messages -->
+    <!-- Not in iOS -->
+
+    <!-- Choose Image -->
+    <string name="image_choose_input_method">Selecciona una imatge de la càmera o de la galeria</string> <!-- Not in iOS -->
+    <string name="message_uploading_image">Pujant imatge…</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Log In Social-->
+
+    <!-- Sign In -->
+
+    <!-- Forgot Password -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+
+    <!-- Verify Options -->
+
+    <!-- Promo code -->
+
+    <!-- Errors -->
+    <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_incorrect_password">Ui! Aquesta contrasenya no és correcta.</string>
+    <string name="error_field_required">Aquest camp és obligatori</string> <!-- Not in iOS -->
+    <!-- Not in iOS -->
+    <string name="error_list_room_no_pictures">Necessites almenys una imatge per poder publicar l\'habitació.</string> <!-- Not in iOS -->
+    <string name="error_list_room_bills_included">Si us plau, selecciona si les despeses estan incloses o no</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_from">Si us plau, selecciona quan estarà disponible l\'habitació</string> <!-- Not in iOS -->
+    <string name="error_list_room_availability_to">Si us plau, indica a partir de quan l\'habitació ja no estarà disponible</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_tenants">Si us plau, afegeix als teus companys de pis (tu inclòs)</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_type_bed_selected">Si us plau, selecciona el tipus de llit</string> <!-- Not in iOS -->
+    <string name="error_list_room_no_amenities">Si us plau, selecciona almenys una comoditat</string> <!-- Not in iOS -->
+
+    <!-- Api Errors -->
+    <string name="error_warning">Compte!</string> <!-- Not in iOS -->
+    <string name="error_authentication">Ups! Sembla que hi ha algun error amb la teva autentificació. Si us plau, torna-ho a provar i si el problema persisteix, contacta amb el nostre suport.</string>
+    <string name="error_invalid_context">Ep! Has d\'iniciar sessió prèviament amb el teu compte per poder fer això.</string>
+    <string name="error_no_access">Ups! No tens accés aquí. Si us plau, contacta al nostre suport.</string>
+    <string name="error_resource_not_found">Ups! No podem trobar això. Si us plau, contacta amb el nostre suport.</string>
+    <string name="error_resource_already_confirmed_by_another_user">Vaja! Aquesta informació està sent utilitzada per un altre usuari.</string>
+    <string name="error_non_available">Oh! No podem trobar això. Si us plau, contacta amb el nostre suport.</string>
+    <string name="error_forbidden_operation">Ep! No tens permís per fer això. Si us plau, contacta amb el nostre suport.</string>
+    <string name="error_invalid_params">Ep! Falten alguns dels camps obligatoris. Si us plau, revisa\'ls o contacta amb el nostre suport.</string> <!-- Not in iOS -->
+    <string name="error_invalid_record">Ups! Sembla que hi ha un error amb un o més dels camps. Torna a provar-ho o contacta al nostre suport. </string>
+    <string name="error_invalid_facebook_token">Ups! Hi ha hagut un error amb Facebook. Prova més tard o contacta amb el nostre suport.</string>
+    <string name="error_invalid_sms_request">Ep! No hem pogut processar la teva sol·licitud de verificació. Prova més tard o contacta amb el nostre suport.</string>
+    <string name="error_concurrent_verification_sms">Ja has demanat un SMS de verificació. Si no el reps en 5 minuts, torna a provar.</string>
+    <string name="error_unknown_sms_verification">Ups! Hi ha hagut un error amb el servei de verificació de missatges. Prova més tard o contacta amb el nostre suport.</string>
+    <string name="error_no_match_login_type">Ups! No podem trobar aquesta adreça amb aquest inici de sessió. Segur que no et vas registrar amb un altre compte o amb un inici de sessió diferent? </string>
+    <string name="error_email_not_found">Ups! No trobem a cap usuari amb aquesta adreça de correu</string>
+    <string name="error_email_already_exists">Vaja! Aquest correu ja existeix.</string>
+    <string name="error_facebook_login_exists">Aquest compte de Facebook l\'utilitza un altre usuari.</string>
+    <string name="error_google_login_exists">Aquest compte de Google l\'utilitza un altre usuari.</string>
+    <string name="error_unknown_exception">Ep! Ha ocorregut un error desconegut. Prova més tard o contacta amb el nostre suport.</string>
+    <string name="error_invalid_postal_code">Ups! Aquest codi postal és invàlid per al país seleccionat.</string>
+    <string name="error_invalid_account_number">Ups! El número de compte és invàlid. Si us plau, revisa que estigui escrit correctament.</string>
+    <string name="error_invalid_account_country">Ups! El país del compte bancari és invàlid. Si us plau, revisa que el compte bancari és del país del teu compte.</string>
+    <string name="error_no_match_password_confirmation">Oops! Sembla que les dues contrasenyes no coincideixen.</string>
+    <string name="error_request_already_answered">Oops! Aquesta sol·licitud ja s\'ha respost</string>
+    <string name="error_request_non_archivable">Oops! Aquesta sol·licitud no es pot arxivar</string>
+    <string name="error_room_is_frozen">Oops! Aquesta habitació no es pot actualitzar</string>
+    <string name="error_user_with_no_payment_data">Oops! Falten dades de pagament</string>
+    <string name="error_user_with_no_payout_data">Oops! Falta informació de pagament</string>
+    <string name="error_booking_proposal_in_progress">Oops! No és possible enviar una Sol·licitud de Reserva quan en tens una altra esperant resposta</string>
+    <string name="error_cant_leave_chat">Oops! No es pot deixar aquest xat perquè hi ha una Reserva vinculada.</string>
+    <string name="error_cant_block_chat">Oops! no es pot bloquejar aquest xat perquè hi ha una Reserva en comú. Si encara vols bloquejar-ho, contacta suport</string>
+    <string name="error_location_service">Error temporal: no podem connectar amb el nostre servei de localització. Per favor, tanca i torna a obrir l\'app.</string>
+
+    <!-- Stripe Errors -->
+    <string name="error_stripe_invalid_number">El número de la targeta no és un número vàlid.</string>
+    <string name="error_stripe_invalid_expiry_month">El mes de caducitat de la targeta és incorrecte.</string>
+    <string name="error_stripe_invalid_expiry_year">L\'any de caducitat de la targeta és incorrecte.</string>
+    <string name="error_stripe_invalid_cvc">El codi de seguretat de la targeta és incorrecte.</string>
+    <string name="error_stripe_invalid_swipe_data">La informació de la targeta és incorrecta.</string>
+    <string name="error_stripe_incorrect_number">El número de la targeta és incorrecte.</string>
+    <string name="error_stripe_expired_card">La targeta ha caducat.</string>
+    <string name="error_stripe_incorrect_cvc">El codi de seguretat de la targeta és incorrecte.</string>
+    <string name="error_stripe_incorrect_zip">Ha fallat la validació del codi zip de la targeta.</string>
+    <string name="error_stripe_card_declined">La targeta ha estat rebutjada.</string>
+    <string name="error_stripe_missing">No s\'està carregant cap targeta.</string>
+    <string name="error_stripe_processing_error">Ha ocorregut un error processant la targeta.</string>
+
+    <!-- Profile -->
+    <string name="profile_years_old">%d anys</string>
+    <string name="profile_other">Altre</string> <!-- Not in iOS -->
+    <string name="profile_language_arabic">Àrab</string>
+    <string name="profile_language_indonesian">Indonesi</string>
+    <string name="profile_language_chinese">Xinès</string>
+    <string name="profile_language_czech">Txec</string>
+    <string name="profile_language_danish">Danès</string>
+    <string name="profile_language_german">Alemany</string>
+    <string name="profile_language_greek">Grec</string>
+    <string name="profile_language_english">Anglès</string>
+    <string name="profile_language_esperanto">Esperanto</string>
+    <string name="profile_language_spanish">Espanyol</string>
+    <string name="profile_language_french">Francès</string>
+    <string name="profile_language_hindi">Hindi</string>
+    <string name="profile_language_italian">Italià</string>
+    <string name="profile_language_japanese">Japonès</string>
+    <string name="profile_language_korean">Coreà</string>
+    <string name="profile_language_hungarian">Hongarès</string>
+    <string name="profile_language_dutch">Holandès</string>
+    <string name="profile_language_norwegian">Noruec</string>
+    <string name="profile_language_polish">Polonès</string>
+    <string name="profile_language_portuguese">Portuguès</string>
+    <string name="profile_language_romanian">Romanès</string>
+    <string name="profile_language_russian">Rus</string>
+    <string name="profile_language_finnish">Finlandès</string>
+    <string name="profile_language_swedish">Suec</string>
+    <string name="profile_language_swahili">Swahili</string>
+    <string name="profile_language_turkish">Turc</string>
+    <string name="profile_language_catalan">Català</string>
+    <string name="profile_language_basque">Basc</string>
+    <string name="profile_language_galician">Gallec</string>
+    <string name="profile_language_thai">Tailandès</string>
+    <string name="profile_language_vietnamese">Vietnamita</string>
+
+    <!-- Profile -->
+    <string name="edit_profile_name">Nom</string>
+    <string name="edit_profile_female">dona</string>
+    <string name="edit_profile_male">home</string>
+    <string name="edit_profile_characters_left">et queden %d caràcters</string>
+    <string name="edit_profile_location_information">(No mostrarem la localització exacta)</string>
+
+    <!-- Search -->
+    <string name="search_title">On t\'agradaria viure?</string>
+    <string name="search_hint_type_a_city_or_location">Escriu una ciutat o ubicació</string>
+    <string name="search_hint_type_address">Escriu l\'adreça</string>
+    <string name="search_nearby">Buscar a prop meu</string>
+    <string name="search_list_a_room">Publicar habitació</string>
+    <string name="search_suggested">Recomanades</string>
+    <string name="search_my_location">La meva ubicació</string>
+
+    <string name="country_spain">Espanya</string>
+    <string name="city_barcelona">Barcelona</string>
+    <string name="city_madrid">Madrid</string>
+    <string name="city_valencia">València </string>
+    <string name="city_seville">Sevilla</string>
+    <string name="city_granada">Granada</string>
+    <string name="city_malaga">Màlaga</string>
+    <string name="city_bilbao">Bilbao</string>
+    <string name="city_alacant">Alacant</string>
+    <string name="city_salamanca">Salamanca</string>
+
+    <string name="country_italy">Itàlia</string>
+    <string name="city_rome">Roma</string>
+    <string name="city_milan">Milà</string>
+    <string name="city_bologna">Bolonya</string>
+    <string name="city_florence">Florència</string>
+    <string name="city_pisa">Pisa</string>
+
+    <!-- Search Suggestions Place Type Tags -->
+    <string name="search_suggestion_tag_region">regió</string>
+    <string name="search_suggestion_tag_country">país</string>
+    <string name="search_suggestion_tag_establishment">establiment</string>
+    <string name="search_suggestion_tag_city">ciudad</string>
+    <string name="search_suggestion_tag_neighborhood">barrio</string>
+    <string name="search_suggestion_tag_street">calle</string>
+    <string name="search_suggestion_tag_district">districte</string>
+    <string name="search_suggestion_tag_transit_station">estació</string>
+
+    <!-- Search Results -->
+    <string name="search_result_see_more_rooms">Vols veure més habitacions? Cerca a una altra zona o prova a canviar els filtres seleccionats.</string>
+
+    <!-- Filters -->
+    <string name="filters_apply">Aplicar</string>
+    <string name="filters_available_from">Disponible des de</string>
+    <string name="filters_now">Ara</string>
+    <string name="filters_choose_date">Escull data</string>
+    <string name="filters_maximum_price">Preu màxim mensual</string>
+    <string name="filters_maximum_price_description">(Moneda del país)</string>
+    <string name="filters_badis_gender">Prefereixo viure amb…</string>
+    <string name="filters_badis_gender_description">(Actualment vivint al pis)</string>
+    <string name="filters_gender_all_female">noies</string>
+    <string name="filters_gender_all_male">nois</string>
+    <string name="filters_gender_both">ambdós</string>
+    <string name="filters_badis_total">Nombre total de Badis</string>
+    <string name="filters_badis_total_description">(Actualment vivint al pis)</string>
+    <string name="filters_badis_total_minimum">mínim</string>
+    <string name="filters_badis_total_maximum">màxim</string>
+    <string name="filters_bed_type">Tipus de llit</string>
+    <string name="filters_room_amenities">Comoditats habitació</string>
+    <string name="filters_friendly_rules">Normes</string>
+    <string name="filters_general_amenities">Comoditats generals</string>
+    <string name="date_room_day">1 dia</string>
+    <string name="date_room_days">%d dies</string>
+    <string name="date_room_week">1 setmana</string>
+    <string name="date_room_weeks">%d setmanes</string>
+    <string name="date_room_month">1 mes</string>
+    <string name="date_room_months">%d mesos</string>
+    <string name="date_room_year">1 any o més</string> <!-- Not in iOS -->
+    <string name="date_room_this_week">aquesta setmana</string>
+    <string name="date_room_over_a_week_ago">fa més de una setmana</string>
+    <string name="price_room_monthly">%1$d %2$s/mes</string>
+    <string name="button_send_request">Sol·licitar</string>
+    <string name="button_room_requested">Habitació sol·licitada</string> <!-- Not in iOS -->
+    <string name="text_share_room">Mira quina habitació he trobat a @badiapp #FindYourPlace %1$s%2$d</string>
+    <string name="text_share_room_with_city">Mira quina habitació he trobat a %1$s amb @badiapp #FindYourPlace %2$s%3$d</string>
+    <string name="text_share_my_room">Tinc una habitació lliure per llogar, hi ha algú interessat? Fes´li una ullada a @badiapp %1$s%2$d</string>
+    <string name="text_share_room_chooser">Compartir</string>
+    <string name="text_label_room_not_available">Habitació no disponible</string>
+    <string name="text_label_denied">Denegada</string>
+    <string name="text_label_my_room">la meva habitació</string>
+    <string name="error_rooms_unavailable">Ups! Encara no hi ha habitacions en aquesta localització</string>
+    <string name="title_map_search">Zona del mapa seleccionada</string>
+    <string name="published">Publicada</string>
+    <plurals name="amount_roommates">
+        <item quantity="one">%d company de pis</item>
+        <item quantity="other">%d companys de pis</item>
+    </plurals>
+    <string name="room_detail_roommates">Companys</string>
+    <string name="room_detail_min_stay">Estada mínima de</string>
+    <string name="room_detail_location">Ubicació</string>
+    <string name="room_detail_now">Ara</string>
+    <string name="room_detail_available_from">Disponible des de</string>
+    <string name="room_detail_to">fins</string>
+    <string name="room_detail_see_all">veure-les totes</string>
+
+    <!-- Amenities -->
+    <string name="amenities_title">Comoditats</string>
+    <string name="amenities_unfurnished">desmoblat</string>
+    <string name="amenities_sofa_bed">sofà llit</string>
+    <string name="amenities_single_bed">llit individual</string>
+    <string name="amenities_double_bed">llit de matrimoni</string>
+    <string name="amenities_tv">tv</string>
+    <string name="amenities_wifi">wifi</string>
+    <string name="amenities_air_conditioner">aire condicionat</string>
+    <string name="amenities_parking">parking</string>
+    <string name="amenities_smokers_friendly">es pot fumar</string>
+    <string name="amenities_pet_allowed">animals permesos</string>
+    <string name="amenities_elevator">ascensor</string>
+    <string name="amenities_heating">calefacció</string>
+    <string name="amenities_washing_machine">rentadora</string>
+    <string name="amenities_dryer">assecadora</string>
+    <string name="amenities_doorman">porter</string>
+    <string name="amenities_couples_accepted">s\'accepten parelles</string>
+    <string name="amenities_furnished">moblat</string>
+    <string name="amenities_pool">piscina</string>
+    <string name="amenities_private_bathroom">bany privat</string>
+    <string name="amenities_balcony">balcó</string>
+    <string name="amenities_exterior_view">exterior</string>
+    <string name="amenities_dish_washer">rentaplats</string>
+    <string name="amenities_wheelchair">accessible</string>
+
+    <!-- Tenant Detail -->
+    <string name="report_user_subject">Vull denunciar aquest usuari amb ID: %d</string>
+    <string name="report_user_body">Hola Badi, \n\n vull denunciar aquest usuari: \n\n Nom: %1$s \n ID: %2$d \n\n Gràcies</string>
+    <string name="report_user_chooser">Denuncia a aquest usuari</string>
+
+    <!-- Map messages -->
+    <string name="map_fragment_searching_in_this_area">buscant en aquesta zona</string>
+
+    <!-- Settings -->
+    <string name="invite_friend_email_subject">Ei! Dóna-li una ullada a Badi!</string>
+    <string name="invite_friend_email_body">Quan he vist aquesta app, m\'ha fet pensar en tu. Et permet buscar una habitació o llogar l\'habitació lliure que tens al teu pis i trobar nous companys de pis segons la teva edat, aficions i gustos. Segur que t\'encantarà! %1$s \n\n %2$s</string>
+    <string name="invite_friend_chooser">Convida a un amic</string>
+    <string name="report_bug_email_subject">Sembla que alguna cosa no va bé…</string>
+    <string name="report_bug_email_body">Model dispositiu: %1$s \n Versió OS: %2$s \n Versió App: %3$s \n App Build: %4$d \n User ID: %5$s \n</string>
+    <string name="report_bug_chooser">Informa\'ns d\'un problema</string>
+    <string name="delete_account_email_subject">Si us plau, elimina el meu compte</string>
+    <string name="delete_account_email_body">El meu ID: %d</string>
+    <string name="delete_account_chooser">Eliminar compte</string>
+    <string name="send_email_chooser">Envia un correu</string> <!-- Not in iOS -->
+
+    <!-- Chat -->
+
+    <!-- List room -->
+    <string name="list_room_pictures">Imatges</string>
+    <string name="list_room_cover_placeholder">Fotos boniques + Quantitat =\nMés oportunitats</string>
+    <string name="list_room_long_press_to_order">Pressiona i arrossega per moure</string>
+    <string name="list_room_about_the_room">Sobre l\'habitació</string>
+    <string name="list_room_room_title">Títol de l\'anunci</string>
+    <string name="list_room_location">Ubicació</string>
+    <string name="list_room_price_month">Preu mensual</string>
+    <string name="list_room_bills_included">Estan les despeses incloses?</string>
+    <string name="list_room_availability">Disponibilitat</string>
+    <string name="list_room_from">Des de</string>
+    <string name="list_room_right_now">ara</string>
+    <string name="list_room_choose_date">escull data</string>
+    <string name="list_room_to">fins</string>
+    <string name="list_room_we_ll_see">sense data</string>
+    <string name="list_room_minimum_stay_months">Estança mínima (mesos)</string>
+    <string name="list_room_who_lives_there">Quants companys sou al pis?</string>
+    <string name="list_room_you_included">(tu inclòs)</string>
+    <string name="list_room_badis">Badis</string>
+    <string name="list_room_edit">editar</string>
+    <string name="list_room_type_of_bed">Tipus de llit</string>
+    <string name="list_room_amenities">Comoditats</string>
+    <string name="list_room_select_the_amenities">Selecciona les comoditats</string>
+    <string name="list_room_description">Descripció</string>
+    <string name="list_room_hint_description">Escriu alguna cosa més de l\'habitació, el pis o els companys</string>
+    <string name="list_room_yes">Sí</string>
+    <string name="list_room_no">No</string>
+    <string name="list_room_message_wait_for_upload">Una imatge s\'esta pujant, si us plau espera a què acabi per seleccionar la següent. </string>
+    <string name="list_room_address_title">On està el pis?</string>
+    <string name="list_room_save_changes">Guardar canvis</string>
+    <string name="list_room_place_save_location">Guardar ubicació</string>
+
+    <string name="room_button_reject_request">No m’interessa</string>
+    <string name="room_button_accept_request">Xatejar ara</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_add_roommates_title">Tan important és l\'habitació com les persones que viuen al pis. </string>
+    <string name="dialog_add_roommates_text">Convida els teus companys al anunci per a tenir millors resultats</string>
+    <string name="dialog_add_roommates_add_roommates">Afegeix Badis</string>
+    <string name="dialog_add_roommates_later">Després</string>
+    <string name="dialog_share_listing_title">El teu anunci ja está publicat</string>
+    <string name="dialog_share_listing_text">Comparteix a les xarxes socials el teu anunci i tindrà més visibilitat </string>
+    <string name="dialog_share_listing_share_ad">Comparteix l\'habitació</string>
+    <string name="dialog_share_listing_later">Després</string>
+    <string name="dialog_complete_profile_title">Completa el teu perfil</string>
+    <string name="dialog_complete_profile_text">Els altres Badis volen saber com ets. Completa el teu perfil perquè et coneguin millor.</string>
+    <string name="dialog_complete_profile">Completar perfil</string>
+    <string name="dialog_complete_profile_not_now">Ara no</string>
+    <string name="dialog_new_country_title">Gairebé hi som…</string>
+    <string name="dialog_new_country_text">Hem preparat amb amor la nostra arribada a Itàlia. Tingues paciència, l\'oferta anirà creixent!</string>
+    <string name="dialog_new_country_awesome">Genial!</string>
+
+    <!-- Add roommates -->
+    <string name="add_roommates_title">Afegeix Badis</string>
+    <string name="add_roommates_hint_search">Escriu el nom aquí.</string>
+    <string name="add_roommates_whoops">Ups!</string>
+    <string name="add_roommates_no_roommate_found">Sembla que els teus companys no formen part de la nostra comunitat </string>
+    <string name="add_roommates_cannot_find_roommates">No trobes als teus companys?</string>
+    <string name="add_roommates_invite_roommates">Convida als teus companys de pis</string>
+    <string name="add_roommates_save_changes">Guardar canvis</string>
+
+    <!-- My posted rooms List -->
+
+    <!-- My Rooms List -->
+
+    <!-- Recommendations -->
+
+    <!-- My Room Detail -->
+    <string name="my_room_detail_booked">Reservada</string>
+
+    <!-- My room rented to -->
+
+    <!-- My room rented date -->
+
+    <!-- My room book to -->
+
+    <!-- Tips -->
+
+    <!-- Change Password -->
+
+    <!-- Rate the App -->
+    <string name="dialog_rate_app_title">Et mola la nostra app?</string>
+    <string name="dialog_rate_app_message">Valorant-nos, ens ajudaràs a millorar. Gràcies!</string>
+    <string name="dialog_rate_app_satisfaction_sad">Mmm, no</string>
+    <string name="dialog_rate_app_satisfaction_normal">Ni fu ni fa</string>
+    <string name="dialog_rate_app_satisfaction_happy">Seeeh</string>
+    <string name="dialog_rate_app_satisfaction_very_happy">¡MOLA!</string>
+    <string name="dialog_rate_app_button_send">Enviar</string>
+
+    <!-- My Account -->
+
+    <!-- Add Account -->
+
+    <!-- Atrápalo promo -->
+
+    <!-- Payments: Payments Data -->
+
+    <!-- Payments: Add credit card -->
+
+    <!-- Booking Request -->
+
+    <!-- Payment Information Request -->
+
+    <!-- Create Booking Request -->
+
+    <!-- Booking Status / My Room Detail -->
+
+    <!-- Booking Information -->
+
+    <!-- Booking Help -->
+    <string name="phone_dial_chooser">Telefòn</string>
+
+    <!-- Booking Tutorial -->
+
+</resources>

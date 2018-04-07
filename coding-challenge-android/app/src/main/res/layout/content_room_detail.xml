@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".presentation.roomdetail.RoomDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/status_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:background="@color/green_500">
+
+            <TextView
+                android:id="@+id/text_published_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Published 2 weeks ago"
+                android:textColor="@color/white"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/view_dot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_room_dot"
+                android:textColor="@color/white"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toEndOf="@+id/text_published_room"
+                android:layout_toRightOf="@+id/text_published_room"/>
+
+            <TextView
+                android:id="@+id/text_roommates_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="5 roommates"
+                android:textColor="@color/white"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/view_dot"
+                android:layout_toRightOf="@+id/view_dot"/>
+
+            <TextView
+                android:id="@+id/text_price_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/text_published_room"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/white"
+                tools:text="450€/month"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/image_gender_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:src="@drawable/ic_profile_male"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"/>
+
+                <ImageView
+                    android:id="@+id/image_occupation_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:src="@drawable/ic_profile_study"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/image_gender_tenant"
+                    android:layout_toRightOf="@+id/image_gender_tenant"/>
+
+                <RelativeLayout
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/border_thumbnail_tenant"
+                    android:transitionName="@string/transition_tenant_image"
+                    android:foreground="@drawable/img_circle_border_green_selector"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true">
+
+                    <ImageView
+                        android:id="@+id/image_thumbnail_tenant"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/image_verified_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_check_green"
+                    android:layout_alignBottom="@+id/border_thumbnail_tenant"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/text_name_tenant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="David Ribes"
+                    android:textColor="@color/green_500"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:layout_below="@+id/image_gender_tenant"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toStartOf="@+id/border_thumbnail_tenant"
+                    android:layout_toLeftOf="@+id/border_thumbnail_tenant"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/text_age_tenant"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_name_tenant"
+                    tools:text="24 years old"/>
+
+                <TextView
+                    android:id="@+id/text_city_tenant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/text_age_tenant"
+                    tools:text="Barcelona, Spain"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_title_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    tools:text="Sunny double room"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_amenities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/item_amenity"/>
+
+                <TextView
+                    android:id="@+id/text_see_all_amenities"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:padding="15dp"
+                    android:textColor="@color/green_500"
+                    android:text="@string/room_detail_see_all"/>
+
+                <TextView
+                    android:id="@+id/text_description_room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="25dp"
+                    tools:text="Habitación luminosa y exterior. En el piso vivimos 5 compañeros, todos estudiantes de día. Hay muy buen rollo y buscamos a alguien con ganas de compartir  algo más que un “hola y adiós”.
+En el piso vivimos 5 compañeros, todos estudiantes de día. Hay muy buen rollo y buscamos a alguien con ganas"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/grey_divider_line"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:drawableStart="@drawable/ic_room_detail_roommates"
+                        android:drawableLeft="@drawable/ic_room_detail_roommates"
+                        android:drawablePadding="11dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/room_detail_roommates"
+                        android:textColor="@color/grey_400"/>
+
+                    <TextView
+                        android:id="@+id/text_num_female_tenants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_tenant_female"
+                        android:drawableRight="@drawable/ic_tenant_female"
+                        android:drawablePadding="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColor="@color/green_500"
+                        android:gravity="center_vertical"
+                        tools:text="2"/>
+
+                    <TextView
+                        android:id="@+id/text_num_male_tenants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_tenant_male"
+                        android:drawableRight="@drawable/ic_tenant_male"
+                        android:drawablePadding="5dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColor="@color/green_500"
+                        android:gravity="center_vertical"
+                        tools:text="3"/>
+
+                    <TextView
+                        android:id="@+id/text_num_undefined_tenants"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_tenant_undefined"
+                        android:drawableRight="@drawable/ic_tenant_undefined"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textColor="@color/green_500"
+                        android:gravity="center_vertical"
+                        tools:text="5"/>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_tenants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="5dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/item_tenant"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/grey_divider_line"/>
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TableRow
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginRight="15dp"
+                            android:drawableStart="@drawable/ic_room_detail_calendar"
+                            android:drawableLeft="@drawable/ic_room_detail_calendar"
+                            android:drawablePadding="11dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/room_detail_available_from"
+                            android:textColor="@color/grey_400"/>
+                        <TextView
+                            android:id="@+id/text_availability_room_to_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="@string/room_detail_to"
+                            android:textColor="@color/grey_400"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginRight="15dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/text_availability_room_from"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:text="Sept 25, 2017"/>
+
+                        <TextView
+                            android:id="@+id/text_availability_room_to"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            tools:text="Nov 10, 2017"/>
+                    </TableRow>
+
+                </TableLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_min_stay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/room_detail_min_stay"
+                        android:textColor="@color/grey_400"/>
+
+                    <TextView
+                        android:id="@+id/text_min_stay_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="5dp"
+                        tools:text="3 months"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="25dp"
+                    android:background="@color/grey_divider_line"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:drawableStart="@drawable/ic_room_detail_location"
+                    android:drawableLeft="@drawable/ic_room_detail_location"
+                    android:drawablePadding="11dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/room_detail_location"
+                    android:textColor="@color/grey_400"/>
+
+                <TextView
+                    android:id="@+id/text_location_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="5dp"
+                    tools:text="Barri Gòtic, Barcelona"/>
+
+                <fragment
+                    android:id="@+id/map_room_location"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

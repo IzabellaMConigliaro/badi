@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".presentation.listroom.ListRoomAmenitiesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+        android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+        android:paddingBottom="100dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_private_bathroom"
+                android:tag="@string/filters_tag_private_bathroom"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_private_bathroom"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_private_bathroom"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_window"
+                android:tag="@string/filters_tag_window"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_exterior_view"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_window"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_terrace"
+                android:tag="@string/filters_tag_terrace"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_balcony"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_terrace"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_smoker_friendly"
+                android:tag="@string/filters_tag_smokers_friendly"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_smokers_friendly"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_smoker_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_couples_accepted"
+                android:tag="@string/filters_tag_couples_accepted"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_couples_accepted"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_couples_accepted"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_pets_friendly"
+                android:tag="@string/filters_tag_pet_allowed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_pet_allowed"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_pet_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_furnished"
+                android:tag="@string/filters_tag_furnished"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_furnished"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_furnished"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_wifi"
+                android:tag="@string/filters_tag_wifi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_wifi"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_wifi"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_tv"
+                android:tag="@string/filters_tag_tv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_tv"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_tv"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_heating"
+                android:tag="@string/filters_tag_heating"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_heating"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_heating"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_air_conditioner"
+                android:tag="@string/filters_tag_air_conditioner"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_air_conditioner"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_air_conditioner"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_washing_machine"
+                android:tag="@string/filters_tag_washing_machine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_washing_machine"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_washing_machine"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_dryer"
+                android:tag="@string/filters_tag_dryer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_dryer"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_dryer"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_dishwasher"
+                android:tag="@string/filters_tag_dishwasher"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_dish_washer"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_dishwasher"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_elevator"
+                android:tag="@string/filters_tag_elevator"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_elevator"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_elevator"
+                android:drawablePadding="8dp"
+                android:textColor="@color/selector_filter_color"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_wheelchair_friendly"
+                android:tag="@string/filters_tag_wheelchair_friendly"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_wheelchair"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_wheelchair_friendly"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_doorman"
+                android:tag="@string/filters_tag_doorman"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_doorman"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_doorman"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <CheckBox
+                android:id="@+id/button_parking"
+                android:tag="@string/filters_tag_parking"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_parking"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_parking"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="15dp">
+
+            <CheckBox
+                android:id="@+id/button_pool"
+                android:tag="@string/filters_tag_pool"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/amenities_pool"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="@color/selector_filter_color"
+                android:background="@color/transparent"
+                android:drawableTop="@drawable/button_filters_pool"
+                android:drawablePadding="8dp"
+                android:button="@null"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".presentation.listroom.ListRoomActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_pictures"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_pictures"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/text_list_room_cover_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="45dp"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="60dp"
+                android:gravity="center_horizontal"
+                android:text="@string/list_room_cover_placeholder"
+                android:textColor="@color/green_500"
+                android:textSize="16sp"
+                android:paddingStart="0dp"
+                android:paddingLeft="0dp"
+                android:paddingEnd="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="0dp"
+                android:background="@drawable/img_bg_camera_bubble"/>
+
+            <ImageView
+                android:id="@+id/image_list_room_cover"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginBottom="15dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginBottom="5dp"
+                android:gravity="end">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:src="@drawable/ic_drag_drop"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/list_room_long_press_to_order"
+                    android:textColor="@color/grey_400"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_pictures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal"
+                app:layoutManager="GridLayoutManager"
+                tools:listitem="@layout/item_list_room_picture"/>
+
+            <ProgressBar
+                android:id="@+id/progress_loading_image"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_about_the_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_about_the_room"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/til_list_room_room_title"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tied_list_room_room_title"
+                    android:hint="@string/list_room_room_title"
+                    android:textColorHint="@color/grey_400"
+                    android:imeActionId="@+id/tied_list_room_location"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:maxLength="35"
+                    app:backgroundTint="@color/grey_300"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:id="@+id/text_title_room_characters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textColor="@color/grey_400"
+                android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                tools:text="35 characters left"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="28dp"
+                android:paddingRight="28dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/til_list_room_location">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tied_list_room_location"
+                        android:hint="@string/list_room_location"
+                        android:textColorHint="@color/grey_400"
+                        android:focusable="false"
+                        app:backgroundTint="@color/grey_300"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <FrameLayout
+                    android:id="@+id/button_navigate_to_add_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="@string/edit_profile_location_information"
+                android:textColor="@color/grey_400"
+                android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                tools:text="@string/edit_profile_location_information"/>
+
+            <LinearLayout
+                android:id="@+id/layout_price_attributes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/list_room_price_month"
+                    android:textColor="@color/grey_400"
+                    android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                    android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/tied_list_room_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/filters_no_price"
+                        android:textColorHint="@color/grey_300"
+                        android:textColor="@color/green_500"
+                        android:textSize="32sp"
+                        android:maxLines="1"
+                        android:maxLength="9"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:layout_gravity="center_horizontal"
+                        app:backgroundTint="@color/tied_state_list"/>
+
+                    <TextView
+                        android:id="@+id/text_currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currency_sign_euro"
+                        android:textColor="@color/grey_300"
+                        android:textSize="32sp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/list_room_bills_included"
+                    android:textColor="@color/grey_400"
+                    android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                    android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginEnd="70dp"
+                    android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                    android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <CheckBox
+                        android:id="@+id/checkbox_bills_included"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/checkbox_selector_background_round_grey"
+                        android:text="@string/list_room_yes"
+                        android:textColor="@color/selector_list_room_color"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginRight="25dp"/>
+
+                    <CheckBox
+                        android:id="@+id/checkbox_bills_not_included"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/checkbox_selector_background_round_grey"
+                        android:text="@string/list_room_no"
+                        android:textColor="@color/selector_list_room_color"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_availability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+            android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_availability"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_from"
+                android:textColor="@color/grey_400"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="25dp"
+                android:gravity="center">
+
+                <CheckBox
+                    android:id="@+id/checkbox_from_right_now"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.65"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_round_grey"
+                    android:text="@string/list_room_right_now"
+                    android:textColor="@color/selector_list_room_color"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_from_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_round_grey"
+                    android:drawableStart="@drawable/ic_calendar"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:text="@string/list_room_choose_date"
+                    android:textColor="@color/selector_list_room_color"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_to"
+                android:textColor="@color/grey_400"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="25dp"
+                android:gravity="center">
+
+                <CheckBox
+                    android:id="@+id/checkbox_to_no_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.65"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_round_grey"
+                    android:text="@string/list_room_we_ll_see"
+                    android:textColor="@color/selector_list_room_color"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_to_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_round_grey"
+                    android:drawableStart="@drawable/ic_calendar"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:text="@string/list_room_choose_date"
+                    android:textColor="@color/selector_list_room_color"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_minimum_stay_months"
+                android:textColor="@color/grey_400"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <CheckBox
+                    android:id="@+id/checkbox_minimum_stay_one_month"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_circle_grey"
+                    android:text="@string/list_room_minimum_stay_one_month"
+                    android:textSize="@dimen/text_size_info"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_minimum_stay_two_months"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_circle_grey"
+                    android:text="@string/list_room_minimum_stay_two_months"
+                    android:textSize="@dimen/text_size_info"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_minimum_stay_three_months"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_circle_grey"
+                    android:text="@string/list_room_minimum_stay_three_months"
+                    android:textSize="@dimen/text_size_info"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_minimum_stay_six_months"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_circle_grey"
+                    android:text="@string/list_room_minimum_stay_six_months"
+                    android:textSize="@dimen/text_size_info"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <CheckBox
+                    android:id="@+id/checkbox_minimum_stay_twelve_months"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:background="@drawable/checkbox_selector_background_circle_grey"
+                    android:text="@string/list_room_minimum_stay_twelve_months"
+                    android:textSize="@dimen/text_size_info"
+                    android:textColor="@color/selector_list_room_color"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_who_lives_there"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+            android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_who_lives_there"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_you_included"
+                android:textColor="@color/grey_400"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/edit_profile_female"
+                    android:gravity="center"
+                    android:drawableStart="@drawable/ic_list_room_female"
+                    android:drawableLeft="@drawable/ic_list_room_female"
+                    android:drawablePadding="15dp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/text_number_female_tenants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    tools:text="0"/>
+
+                <ImageView
+                    android:id="@+id/button_remove_female_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/img_list_room_remove"/>
+
+                <ImageView
+                    android:id="@+id/button_add_female_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_list_room_add"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/edit_profile_male"
+                    android:gravity="center"
+                    android:drawableStart="@drawable/ic_list_room_male"
+                    android:drawableLeft="@drawable/ic_list_room_male"
+                    android:drawablePadding="15dp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/text_number_male_tenants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginRight="25dp"
+                    tools:text="0"/>
+
+                <ImageView
+                    android:id="@+id/button_remove_male_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/img_list_room_remove"/>
+
+                <ImageView
+                    android:id="@+id/button_add_male_tenant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_list_room_add"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_tenants"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@color/grey_divider_line"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_badis"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_tenants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin_android_double"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/item_tenant"/>
+
+            <TextView
+                android:id="@+id/text_edit_tenants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:textColor="@color/green_500"
+                android:text="@string/list_room_edit"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_type_of_bed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+            android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_type_of_bed"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="15dp">
+
+                <CheckBox
+                    android:id="@+id/check_box_single_bed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@drawable/checkbox_selector"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="0dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/amenities_single_bed"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <CheckBox
+                    android:id="@+id/check_box_sofa_bed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@drawable/checkbox_selector"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="0dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/amenities_sofa_bed"
+                    android:textColor="@color/selector_list_room_color"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/check_box_double_bed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@drawable/checkbox_selector"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="0dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/amenities_double_bed"
+                    android:textColor="@color/selector_list_room_color"/>
+
+                <CheckBox
+                    android:id="@+id/check_box_unfurnished"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@drawable/checkbox_selector"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="0dp"
+                    android:paddingRight="0dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/amenities_unfurnished"
+                    android:textColor="@color/selector_list_room_color"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:id="@+id/layout_amenities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+            android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_amenities"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_select_the_amenities"
+                android:textColor="@color/grey_400"
+                android:layout_marginBottom="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_fake_amenities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_filters_smoker_friendly"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_filters_terrace"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_filters_couples_accepted"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_filters_wifi"/>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_amenities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/item_amenity"/>
+
+            <TextView
+                android:id="@+id/text_see_all_amenities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:padding="20dp"
+                android:textColor="@color/green_500"
+                android:text="@string/room_detail_see_all"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/grey_divider_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/list_room_description"
+                android:textColor="@color/green_500"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"/>
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/tied_list_room_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/list_room_hint_description"
+                android:inputType="textMultiLine"
+                android:maxLength="3000"
+                android:textSize="14sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                app:backgroundTint="@color/tied_state_list"/>
+
+            <TextView
+                android:id="@+id/text_list_room_description_characters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textColor="@color/grey_400"
+                android:paddingStart="@dimen/activity_horizontal_margin_android_double"
+                android:paddingLeft="@dimen/activity_horizontal_margin_android_double"
+                android:paddingEnd="@dimen/activity_horizontal_margin_android_double"
+                android:paddingRight="@dimen/activity_horizontal_margin_android_double"
+                tools:text="3000 characters left"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_list_room"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/text_size_match_parent_button"
+            android:text="@string/title_list_room"
+            android:layout_marginTop="40dp"
+            android:padding="20dp"
+            android:background="@drawable/button_background_green"/>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

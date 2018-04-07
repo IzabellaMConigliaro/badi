@@ -1,0 +1,74 @@
+{
+  "project_info": {
+    "project_number": "1094450867865",
+    "firebase_url": "https://badiapp-144308.firebaseio.com",
+    "project_id": "badiapp-144308",
+    "storage_bucket": "badiapp-144308.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094450867865:android:1ae5b7d6580bef33",
+        "android_client_info": {
+          "package_name": "com.badi.staging"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094450867865-hi4fihof2g0da852niho29vuu3pe75fj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.badi.staging",
+            "certificate_hash": "26e34fb9dae3aa967278b9b034405a5cbd72426d"
+          }
+        },
+        {
+          "client_id": "1094450867865-1kjn1t2rce1lb45is48p9qeoulstbe0s.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1094450867865-ip0tm78f3trj340icpokl7kev6nv1jlc.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1094450867865-o403866flpimfra5m3ndhc2mk9krid21.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1094450867865-mhm586uo53tkv39kbg6g0rpsrue4rqo3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAle35W8GzxbhBHBmtFfJyKligDOwwR0A4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094450867865-1kjn1t2rce1lb45is48p9qeoulstbe0s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1094450867865-bpn66ao90aeruf6kon8s2kjbdg1uqqhm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.badiapp.staging"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

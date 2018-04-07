@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_roommate"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_placeholder_profile_round"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/white"/>
+
+    <CheckedTextView
+        android:id="@+id/checked_text_view_roommate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="@drawable/checkbox_selector"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        tools:text="@string/edit_profile_name"
+        android:textColor="@color/selector_languages_color"/>
+</LinearLayout>
