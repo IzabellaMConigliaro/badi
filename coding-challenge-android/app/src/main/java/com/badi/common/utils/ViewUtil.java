@@ -18,11 +18,14 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.badi.R;
 
 import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 
@@ -137,6 +140,16 @@ public final class ViewUtil {
      */
     public static float convertDpToPixels(Context context, float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
+    }
+
+    public static void changeViewMargin(int left, int top, int right, int bottom, View view) {
+        RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)view.getLayoutParams();
+        params.setMargins(left, top, right, bottom);
+        view.setLayoutParams(params);
+    }
+
+    public static void changeViewMargin(int defaultMargin, View view) {
+        changeViewMargin(defaultMargin, defaultMargin, defaultMargin, defaultMargin, view);
     }
 
 }

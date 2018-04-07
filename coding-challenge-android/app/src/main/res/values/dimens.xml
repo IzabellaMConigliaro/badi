@@ -38,4 +38,7 @@
 
     <dimen name="text_size_match_parent_button">21sp</dimen>
 
+    <dimen name="recycler_view_margin_default">5dp</dimen>
+    <dimen name="recycler_view_margin_double">10dp</dimen>
+
 </resources>

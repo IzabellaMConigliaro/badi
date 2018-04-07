@@ -62,12 +62,15 @@ import butterknife.Unbinder;
 import timber.log.Timber;
 import uk.co.chrisjenx.calligraphy.TypefaceUtils;
 
+import static android.app.Activity.RESULT_OK;
 import static com.badi.presentation.search.DialogNeedABadi.DIALOG_NEED_A_BADI;
 
 /**
  * A {@link BaseFragment} that displays the search
  */
 public class SearchFragment extends BaseFragment {
+    public static final String PARAM_PLACE_ADDRESS = "param_place_address";
+
     @Inject PreferencesHelper preferencesHelper;
     @Inject ResolveLocation resolveLocationUseCase;
 
@@ -77,9 +80,6 @@ public class SearchFragment extends BaseFragment {
     @BindView(R.id.countries_recycler_view) RecyclerView countriesRecyclerView;
     @BindView(R.id.suggestion_name) TextView suggestionName;
     @BindView(R.id.cities_recycler_view) RecyclerView citiesRecyclerView;
-
-    @IdRes
-    private static final int ITEM_HOLDER_LAYOUT = R.layout.item_city_large;
 
     private LocationHelper locationHelper;
     private Unbinder unbinder;
@@ -115,17 +115,35 @@ public class SearchFragment extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Navigator.REQUEST_CHECK_SETTINGS) {
-            switch (resultCode) {
-                case Activity.RESULT_OK:
-                    Timber.i("User agreed to make required location settings changes.");
-                    locationHelper.getLastLocation();
-                    break;
-                case Activity.RESULT_CANCELED:
-                    Timber.i("User chose not to make required location settings changes.");
-                    break;
+
+        switch (requestCode) {
+            case Navigator.REQUEST_CHECK_SETTINGS:{
+                switch (resultCode) {
+                    case RESULT_OK:
+                        Timber.i("User agreed to make required location settings changes.");
+                        locationHelper.getLastLocation();
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        Timber.i("User chose not to make required location settings changes.");
+                        break;
+                }
+            }
+            break;
+            case Navigator.REQUEST_CODE_SEARCH_PLACE_ACTIVITY:{
+                switch (resultCode) {
+                    case RESULT_OK:
+                        PlaceAddress placeAddress = data.getParcelableExtra(PARAM_PLACE_ADDRESS);
+                        if (placeAddress != null) {
+                            Location location = Location.builder().setAddress(placeAddress.address()).setPlaceID(placeAddress.id()).build();
+                            navigateToSearchResultWithLocation(placeAddress.name(), location, true);
+                        }
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        break;
+                }
             }
         }
+
         if (getChildFragmentManager().getFragments() != null) {
             for (Fragment fragment : getChildFragmentManager().getFragments()) {
                 fragment.onActivityResult(requestCode, resultCode, data);
@@ -200,15 +218,19 @@ public class SearchFragment extends BaseFragment {
     }
 
     private void navigateToSearchResultWithLocation(String toolbarTitle, Location location) {
-        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, null, location));
+        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, null, location), false);
+    }
+
+    private void navigateToSearchResultWithLocation(String toolbarTitle, Location location, boolean forceOpen) {
+        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, null, location), forceOpen);
     }
 
     private void navigateToSearchResultWithCoordinates(String toolbarTitle, Coordinates coordinates) {
-        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, coordinates, null));
+        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, coordinates, null), false);
     }
 
-    private void navigateToSearchResultFragment(Fragment fragment) {
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+    private void navigateToSearchResultFragment(Fragment fragment, boolean forceOpen) {
+        if (forceOpen || getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
             // Avoid double transaction if user clicks two times the "Search nearby" button
             if (getChildFragmentManager().getBackStackEntryCount() == 0) {
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

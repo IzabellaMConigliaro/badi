@@ -73,6 +73,8 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 import timber.log.Timber;
 
+import static com.badi.presentation.search.SearchFragment.PARAM_PLACE_ADDRESS;
+
 public class SearchPlaceActivity extends BaseActivity implements HasComponent<SearchComponent>,
         SearchPlaceContract.View, GoogleApiClient.OnConnectionFailedListener {
 
@@ -148,6 +150,7 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
         placesRecyclerView.setAdapter(adapter);
 
         placeAdapter = new PlaceAdapter(new ArrayList<>());
+        placeAdapter.setOnPlaceListener(onSearchListener);
         searchesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         searchesRecyclerView.setAdapter(placeAdapter);
 
@@ -192,6 +195,15 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
         }
     };
 
+    private PlaceAdapter.OnPlaceListener onSearchListener = new PlaceAdapter.OnPlaceListener() {
+        @Override
+        public void onUserItemClicked(Integer position) {
+            if (position != RecyclerView.NO_POSITION) {
+                setResultOKActivity(placeAdapter.getItem(position));
+            }
+        }
+    };
+
     /**
      * Callback for results from a Places Geo Data Client query that shows the first place result in
      * the details view on screen.
@@ -226,19 +238,35 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
      */
     private PlaceAutoCompleteAdapter.OnListPopulationListener onListPopulationListener = () -> {
         if (adapter.getItemCount() == 0) {
-            if (!TextUtils.isEmpty(autoCompleteEditText.getText())) {
-                viewInvalidSearch.setVisibility(View.VISIBLE);
-            } else {
-                viewInvalidSearch.setVisibility(View.GONE);
-            }
-            searchesRecyclerView.setVisibility(View.VISIBLE);
+            if (isInvalidSearch())
+                showInvalidSearch();
+             else
+                showSavedSearch();
+
             placesRecyclerView.setVisibility(View.GONE);
         } else {
-            searchesRecyclerView.setVisibility(View.GONE);
-            viewInvalidSearch.setVisibility(View.GONE);
-            placesRecyclerView.setVisibility(View.VISIBLE);
+            showAutoCompletedSearches();
         }
     };
+
+    private boolean isInvalidSearch() {
+        return !TextUtils.isEmpty(autoCompleteEditText.getText());
+    }
+
+    private void showSavedSearch() {
+        searchesRecyclerView.setVisibility(View.VISIBLE);
+        viewInvalidSearch.setVisibility(View.GONE);
+    }
+
+    private void showInvalidSearch() {
+        viewInvalidSearch.setVisibility(View.VISIBLE);
+    }
+
+    private void showAutoCompletedSearches() {
+        searchesRecyclerView.setVisibility(View.GONE);
+        viewInvalidSearch.setVisibility(View.GONE);
+        placesRecyclerView.setVisibility(View.VISIBLE);
+    }
 
     private void setupLocationCallback() {
         locationHelper.setLocationCallback(new LocationHelper.Listener() {
@@ -346,22 +374,28 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
 
     @Override
     public void showSearchList(List<PlaceAddress> searchList) {
+        placesRecyclerView.setVisibility(View.GONE);
         placeAdapter.setPlacesList(searchList);
     }
 
     @Override
     public void showEmptySearchList() {
-
+        searchesRecyclerView.setVisibility(View.GONE);
     }
 
     @Override
     public void searchSavedInPrefs() {
-
+        searchPlacePresenter.getUserSearches();
     }
 
     @Override
     public void setResultOKActivity(PlaceAddress address) {
         searchPlacePresenter.saveUserSearch(address);
+
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra(PARAM_PLACE_ADDRESS, address);
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
     }
 
     @Override

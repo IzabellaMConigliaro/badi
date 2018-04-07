@@ -2,6 +2,7 @@ package com.badi.presentation.search;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.badi.R;
 import com.badi.common.utils.GlideApp;
+import com.badi.common.utils.ViewUtil;
 import com.badi.data.entity.search.City;
 
 import java.util.ArrayList;
@@ -30,11 +32,16 @@ public class SuggestedCitiesAdapter extends RecyclerView.Adapter<SuggestedCities
     private Context context;
     private List<City> cityList;
     private CitiesAdapter.OnCityListener onCityListener;
+    private int defaultMargin;
+    private int doubleMargin;
 
     SuggestedCitiesAdapter(Context context, CitiesAdapter.OnCityListener cityClickListener) {
         this.context = context;
         this.onCityListener = cityClickListener ;
         setupCitiesList();
+
+        defaultMargin = (int) context.getResources().getDimension(R.dimen.recycler_view_margin_default);
+        doubleMargin = (int) context.getResources().getDimension(R.dimen.recycler_view_margin_double);
     }
 
     private void setupCitiesList() {
@@ -72,7 +79,7 @@ public class SuggestedCitiesAdapter extends RecyclerView.Adapter<SuggestedCities
     @Override
     public void onBindViewHolder(CityHolder holder, int position) {
         // Show country details inside viewHolder
-        holder.show(cityList.get(position));
+        holder.show(cityList.get(position), position);
     }
 
     @Override
@@ -80,14 +87,9 @@ public class SuggestedCitiesAdapter extends RecyclerView.Adapter<SuggestedCities
         return cityList == null ? 0 : cityList.size();
     }
 
-    public void setCities(List<City> cities) {
-        cityList = cities;
-        notifyDataSetChanged();
-    }
-
     class CityHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.image_city) ImageView imageCity;
-
+        @BindView(R.id.item_city_layout) CardView itemCityLayout;
         @BindView(R.id.text_city_name) TextView textCityName;
 
         CityHolder(View itemView) {
@@ -95,7 +97,7 @@ public class SuggestedCitiesAdapter extends RecyclerView.Adapter<SuggestedCities
             ButterKnife.bind(this, itemView);
         }
 
-        public void show(final City city) {
+        public void show(final City city, int position) {
             textCityName.setText(city.name());
 
             if (city.imgLarge() > 0)
@@ -103,6 +105,18 @@ public class SuggestedCitiesAdapter extends RecyclerView.Adapter<SuggestedCities
                         .load(city.imgLarge())
                         .transition(withCrossFade())
                         .into(imageCity);
+
+            setMargin(position);
+        }
+
+        private void setMargin(int position) {
+            if (position == 0) {
+                ViewUtil.changeViewMargin(doubleMargin, defaultMargin, defaultMargin, defaultMargin, itemCityLayout);
+            } else if (position == getItemCount() - 1) {
+                ViewUtil.changeViewMargin(defaultMargin, defaultMargin, doubleMargin, defaultMargin, itemCityLayout);
+            } else {
+                ViewUtil.changeViewMargin(defaultMargin, itemCityLayout);
+            }
         }
 
         @OnClick(R.id.image_city)

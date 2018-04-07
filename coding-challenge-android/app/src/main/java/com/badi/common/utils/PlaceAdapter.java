@@ -37,9 +37,18 @@ import butterknife.ButterKnife;
  */
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.SimplePredictionHolder> {
     private List<PlaceAddress> placesList;
+    private OnPlaceListener onPlaceListener;
+
+    public interface OnPlaceListener {
+        void onUserItemClicked(Integer position);
+    }
 
     public PlaceAdapter(List<PlaceAddress> places) {
         this.placesList = places;
+    }
+
+    public PlaceAddress getItem(int position) {
+        return placesList.get(position);
     }
 
     @Override
@@ -82,7 +91,11 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.SimplePredic
 
         @Override
         public void onClick(View v) {
-            //onPlaceListener.onUserItemClicked(getAdapterPosition());
+            onPlaceListener.onUserItemClicked(getAdapterPosition());
         }
+    }
+
+    public void setOnPlaceListener(OnPlaceListener onPlaceListener) {
+        this.onPlaceListener = onPlaceListener;
     }
 }
