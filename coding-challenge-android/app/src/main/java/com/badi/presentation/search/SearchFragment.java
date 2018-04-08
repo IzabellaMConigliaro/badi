@@ -15,11 +15,8 @@ import android.arch.lifecycle.Lifecycle;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.StyleableRes;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
@@ -27,7 +24,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,9 +34,7 @@ import com.badi.common.utils.DialogFactory;
 import com.badi.common.utils.LocationHelper;
 import com.badi.common.utils.ViewUtil;
 import com.badi.data.entity.PlaceAddress;
-import com.badi.data.entity.search.City;
 import com.badi.data.entity.search.Coordinates;
-import com.badi.data.entity.search.Country;
 import com.badi.data.entity.search.Location;
 import com.badi.data.repository.local.PreferencesHelper;
 import com.badi.domain.interactor.DefaultObserver;
@@ -50,7 +44,6 @@ import com.badi.presentation.main.MainActivity;
 import com.badi.presentation.navigation.Navigator;
 import com.google.android.gms.common.api.ResolvableApiException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -134,8 +127,16 @@ public class SearchFragment extends BaseFragment {
                     case RESULT_OK:
                         PlaceAddress placeAddress = data.getParcelableExtra(PARAM_PLACE_ADDRESS);
                         if (placeAddress != null) {
-                            Location location = Location.builder().setAddress(placeAddress.address()).setPlaceID(placeAddress.id()).build();
-                            navigateToSearchResultWithLocation(placeAddress.name(), location, true);
+                            if (placeAddress.id() != null) {
+                                Location location = Location.builder().setAddress(placeAddress.address()).setPlaceID(placeAddress.id()).build();
+                                navigateToSearchResultWithLocation(placeAddress.name(), location, true);
+                            } else {
+                                Coordinates coordinates = Coordinates.builder()
+                                        .setLatitude(placeAddress.latitude())
+                                        .setLongitude(placeAddress.longitude())
+                                        .build();
+                                navigateToSearchResultWithCoordinates(placeAddress.name(), coordinates, true);
+                            }
                         }
                         break;
                     case Activity.RESULT_CANCELED:
@@ -178,7 +179,17 @@ public class SearchFragment extends BaseFragment {
 
     @NonNull
     private DialogNeedABadi.OnDialogNeedABadiListener getOnDialogNeedABadiListener() {
-        return () -> navigator.navigateToListRoom(getContext());
+        return new DialogNeedABadi.OnDialogNeedABadiListener() {
+            @Override
+            public void onListRoomClicked() {
+                navigator.navigateToListRoom(getContext());
+            }
+
+            @Override
+            public void onDismissDialog(Dialog dialog) {
+                dialog.dismiss();
+            }
+        };
     }
 
     private void handleSearchTypeNavigation(PlaceAddress placeAddress) {
@@ -227,6 +238,10 @@ public class SearchFragment extends BaseFragment {
 
     private void navigateToSearchResultWithCoordinates(String toolbarTitle, Coordinates coordinates) {
         navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, coordinates, null), false);
+    }
+
+    private void navigateToSearchResultWithCoordinates(String toolbarTitle, Coordinates coordinates, boolean forceOpen) {
+        navigateToSearchResultFragment(SearchResultFragment.newInstance(toolbarTitle, coordinates, null), forceOpen);
     }
 
     private void navigateToSearchResultFragment(Fragment fragment, boolean forceOpen) {

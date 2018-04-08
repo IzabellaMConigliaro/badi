@@ -157,8 +157,11 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
         autoCompleteEditText.setOnEditorActionListener((textView, actionId, event) -> {
             if (actionId == R.id.search || actionId == EditorInfo.IME_ACTION_GO) {
                 if (textView.getText().length() > 0) {
-                    if (adapter.getItemCount() > 0)
+                    if (adapter.getItemCount() > 0 &&
+                            adapter.getLastSearch().equals(textView.getText().toString()))
                         onPlaceListener.onUserItemClicked(0);
+                    else
+                        adapter.getFilter().filter(textView.getText());
                 }
                 return true;
             }
@@ -250,7 +253,7 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
     };
 
     private boolean isInvalidSearch() {
-        return !TextUtils.isEmpty(autoCompleteEditText.getText());
+        return !TextUtils.isEmpty(autoCompleteEditText.getText().toString().trim());
     }
 
     private void showSavedSearch() {
@@ -260,6 +263,8 @@ public class SearchPlaceActivity extends BaseActivity implements HasComponent<Se
 
     private void showInvalidSearch() {
         viewInvalidSearch.setVisibility(View.VISIBLE);
+        searchesRecyclerView.setVisibility(View.GONE);
+        placesRecyclerView.setVisibility(View.GONE);
     }
 
     private void showAutoCompletedSearches() {

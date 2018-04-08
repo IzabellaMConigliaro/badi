@@ -178,6 +178,10 @@ public class PreferencesHelper {
         return pref.getString(PREF_USER_SEARCHES, null);
     }
 
+    public void clearUserSearches() {
+        pref.edit().putString(PREF_USER_SEARCHES, null).apply();
+    }
+
     public void saveUserListRoom(String roomDetail) {
         pref.edit().putString(PREF_USER_LIST_ROOM, roomDetail).apply();
     }

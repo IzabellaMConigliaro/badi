@@ -16,9 +16,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.badi.R;
-import com.badi.presentation.navigation.Navigator;
-
-import java.io.Serializable;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -34,6 +31,7 @@ public class DialogNeedABadi extends DialogFragment {
 
     interface OnDialogNeedABadiListener {
         void onListRoomClicked();
+        void onDismissDialog(Dialog dialog);
     }
 
     public void showAllowingStateLoss(FragmentManager manager, String tag,
@@ -78,13 +76,13 @@ public class DialogNeedABadi extends DialogFragment {
 
     @OnClick(R.id.button_close)
     public void onClickClose() {
-        dialog.dismiss();
+        onDialogNeedABadiListener.onDismissDialog(dialog);
     }
 
     @OnClick(R.id.button_list_room)
     public void onClickListRoom() {
         onDialogNeedABadiListener.onListRoomClicked();
-        dialog.dismiss();
+        onDialogNeedABadiListener.onDismissDialog(dialog);
     }
 
     @Override
@@ -94,4 +92,11 @@ public class DialogNeedABadi extends DialogFragment {
         unbinder.unbind();
     }
 
+    public void setOnDialogNeedABadiListener(OnDialogNeedABadiListener onDialogNeedABadiListener) {
+        this.onDialogNeedABadiListener = onDialogNeedABadiListener;
+    }
+
+    private void dismissDialog() {
+        dialog.dismiss();
+    }
 }

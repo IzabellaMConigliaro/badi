@@ -103,4 +103,8 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
+
+    public PreferencesHelper getPreferencesHelper() {
+        return preferencesHelper;
+    }
 }

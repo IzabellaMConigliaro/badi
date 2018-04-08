@@ -73,6 +73,8 @@ public class PlaceAutoCompleteAdapter
     private boolean tagsEnabled = false;
     protected PlaceTypeMapper placeTypeMapper;
 
+    private String lastSearch;
+
     public interface OnPlaceListener {
         void onUserItemClicked(Integer position);
     }
@@ -117,6 +119,7 @@ public class PlaceAutoCompleteAdapter
 
                 // Skip the autocomplete query if no constraints are given.
                 if (constraint != null) {
+                    lastSearch = String.valueOf(constraint);
                     // Query the autocomplete API for the (constraint) search string.
                     filterData = getAutocomplete(constraint);
                 }
@@ -282,5 +285,9 @@ public class PlaceAutoCompleteAdapter
 
     public void setPlaceTypeMapper(PlaceTypeMapper placeTypeMapper) {
         this.placeTypeMapper = placeTypeMapper;
+    }
+
+    public String getLastSearch() {
+        return lastSearch;
     }
 }
