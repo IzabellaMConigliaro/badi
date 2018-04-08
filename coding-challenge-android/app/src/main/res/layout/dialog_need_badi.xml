@@ -43,6 +43,7 @@
             android:text="@string/dialog_need_badi"/>
 
         <TextView
+            android:id="@+id/dialog_message"
             app:layout_constraintTop_toBottomOf="@+id/dialog_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -56,6 +57,17 @@
             android:paddingStart="@dimen/activity_horizontal_margin_android"
             android:paddingEnd="@dimen/activity_horizontal_margin_android"
             android:text="@string/dialog_need_badi_message"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/profiles_img"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_message"
+            app:layout_constraintBottom_toTopOf="@+id/button_list_room"/>
 
         <Button
             android:id="@+id/button_list_room"

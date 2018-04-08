@@ -180,8 +180,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Dependencies for local unit tests
-    testImplementation "junit:junit:$JUNIT_VERSION"
-    testImplementation "org.mockito:mockito-core:$MOCKITO_VERSION"
+    implementation "junit:junit:$JUNIT_VERSION"
+    implementation "org.mockito:mockito-core:$MOCKITO_VERSION"
 
     // Dependencies for Android unit tests
     androidTestImplementation "junit:junit:$JUNIT_VERSION"

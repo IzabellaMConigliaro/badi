@@ -7,7 +7,9 @@
 
 package com.badi.data.entity.search;
 
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 
 import com.google.auto.value.AutoValue;
 import com.google.gson.Gson;
@@ -16,6 +18,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * {@link SearchRooms} model for the request search rooms by cities (initial screen with the predefined cities).
@@ -113,5 +116,25 @@ public abstract class SearchRooms {
         public abstract Builder setPer(Integer per);
         public abstract Builder setOffset(Integer offset);
         public abstract SearchRooms build();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean equals(Object obj) {
+        SearchRooms other = (SearchRooms) obj;
+        return Objects.equals(other.bounds(), this.bounds())
+                && Objects.equals(other.location(), this.location())
+                && Objects.equals(other.coordinates(), this.coordinates())
+                && Objects.equals(other.sortBy(), this.sortBy())
+                && Objects.equals(other.availableFrom(), this.availableFrom())
+                && Objects.equals(other.gender(), this.gender())
+                && Objects.equals(other.bedTypes(), this.bedTypes())
+                && Objects.equals(other.amenities(), this.amenities())
+                && Objects.equals(other.priceTypes(), this.priceTypes())
+                && Objects.equals(other.maxPrice(), this.maxPrice())
+                && Objects.equals(other.newSearchMode(), this.newSearchMode())
+                && Objects.equals(other.page(), this.page())
+                && Objects.equals(other.per(), this.per())
+                && Objects.equals(other.offset(), this.offset());
     }
 }
